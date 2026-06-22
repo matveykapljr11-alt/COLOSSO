@@ -130,6 +130,33 @@
   .partners{margin-top:42px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;opacity:.7}
   .partners span{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
   .plogo{font-weight:800;color:var(--muted);font-size:15px;letter-spacing:.5px}
+  /* ---- events / scrim-night ---- */
+  .evcard{margin-bottom:14px}
+  .evhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .evhead h3{font-size:18px;font-weight:800;font-family:'Space Grotesk','Inter',sans-serif}
+  .evbadge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:5px 11px;border-radius:20px;white-space:nowrap}
+  .evdot{width:7px;height:7px;border-radius:50%}
+  .evmeta{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .evsub{color:var(--muted);font-size:13.5px;margin-bottom:10px;line-height:1.55}
+  .evsub b{color:var(--txt);font-variant-numeric:tabular-nums}
+  .evslots{display:flex;align-items:center;gap:11px;margin:10px 0}
+  .evbar{flex:1;height:8px;border-radius:5px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+  .evbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+  .evslots span{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .evchip{display:inline-block;font-size:12.5px;font-weight:600;color:var(--muted);background:var(--panel2);border:1px solid var(--line);padding:6px 12px;border-radius:8px;margin:2px 0}
+  .evwarn{font-size:12.5px;color:var(--acc2);background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.25);padding:9px 12px;border-radius:9px;margin-top:10px}
+  .evrooms{display:flex;flex-direction:column;gap:9px;margin-top:8px}
+  .evroom{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:750;font-size:14px}
+  .evroom b{color:var(--dim);font-family:var(--mono);font-size:12px}
+  .evroom span{flex:1}.evroom span:last-of-type{text-align:right}
+  .evroom .btn{flex:0 0 auto}
+  .evstats{display:flex;gap:20px;font-size:13px;color:var(--muted);flex-wrap:wrap}.evstats b{color:var(--txt)}
+  .evacts{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+  .evacts .btn{flex:1;min-width:140px;text-align:center;justify-content:center}
+  .btn.grn{background:linear-gradient(135deg,var(--grn),#1fae66);box-shadow:0 6px 18px rgba(39,208,122,.25)}
+  .gate-hero{text-align:center;padding:36px 16px 10px}
+  .gate-hero .lk{font-size:42px}
+  .gate-hero h3{font-size:22px;font-weight:850;margin:12px 0 8px;font-family:'Space Grotesk','Inter',sans-serif}
   .section{padding:62px 0}
   .section h2{font-size:32px;font-weight:850;letter-spacing:-.5px}
   .section .lead{color:var(--muted);margin-top:10px;max-width:640px;font-size:16px}
@@ -1332,6 +1359,7 @@
   <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOSSO</span></div>
   <div class="links">
     <button data-go="home" class="on" data-i18n="nav.home">Início</button>
+    <button data-go="events" data-i18n="nav.events">Eventos</button>
     <button data-go="scrims" data-i18n="nav.scrims">Praccs</button>
     <button data-go="lfg" data-i18n="nav.lfg">Jogadores</button>
     <button data-go="teams" data-i18n="nav.teams">Times</button>
@@ -1382,6 +1410,7 @@
 
   <div class="mm-lbl" data-i18n="mm.nav">Navegação</div>
   <button class="mm" data-v="home" onclick="navTo('home')"><span class="mi2"><svg class="ico"><use href="#i-home"/></svg></span> <span data-i18n="nav.home">Início</span></button>
+  <button class="mm" data-v="events" onclick="navTo('events')"><span class="mi2"><svg class="ico"><use href="#i-trophy"/></svg></span> <span data-i18n="nav.events">Eventos</span></button>
   <button class="mm" data-v="scrims" onclick="navTo('scrims')"><span class="mi2"><svg class="ico"><use href="#i-sword"/></svg></span> <span data-i18n="nav.scrims">Praccs</span></button>
   <button class="mm" data-v="lfg" onclick="navTo('lfg')"><span class="mi2"><svg class="ico"><use href="#i-users"/></svg></span> <span data-i18n="nav.lfg">Jogadores</span></button>
   <button class="mm" data-v="teams" onclick="navTo('teams')"><span class="mi2"><svg class="ico"><use href="#i-shield"/></svg></span> <span data-i18n="nav.teams">Times</span></button>
@@ -1451,7 +1480,7 @@
       <p class="sub" data-i18n="hero.sub">COLOSSO conecta jogadores, times e organizadores: scrims, busca de duplas/squads e torneios com ranking justo, reputação e sistema de denúncias. Servidores em São Paulo e Buenos Aires. Comece em Free Fire e MLBB.</p>
       <div class="cta-row">
         <button class="btn big" data-go="lfg"><svg class="ico"><use href="#i-users"/></svg> <span data-i18n="cta.findTeam">Achar time</span></button>
-        <button class="btn big ghost" data-go="scrims"><svg class="ico"><use href="#i-sword"/></svg> <span data-i18n="cta.playScrim">Jogar scrim</span></button>
+        <button class="btn big ghost" data-go="events"><svg class="ico"><use href="#i-sword"/></svg> <span data-i18n="cta.playScrim">Entrar na Scrim Night</span></button>
         <button class="btn big ghost" data-go="tournaments"><svg class="ico"><use href="#i-trophy"/></svg> <span data-i18n="cta.createTrn">Criar torneio</span></button>
       </div>
       <div class="stats">
@@ -1526,8 +1555,8 @@
     <aside class="gamehub">
       <div class="card">
         <div class="hub-title">Game Hub</div>
-        <div class="game on" data-game="ff"><div class="gicon ff">FF</div><div><div class="gn">Free Fire</div><div class="gs" data-i18n="hub.ff">Principal · 8.1K online</div></div></div>
-        <div class="game" data-game="ml"><div class="gicon ml">ML</div><div><div class="gn">Mobile Legends</div><div class="gs" data-i18n="hub.ml">Ativo · 5.4K online</div></div></div>
+        <div class="game on" data-game="ff"><div class="gicon ff">FF</div><div><div class="gn">Free Fire</div><div class="gs" data-i18n="hub.ff">Beta · foco em FF</div></div></div>
+        <div class="game" data-game="ml"><div class="gicon ml">ML</div><div><div class="gn">Mobile Legends</div><div class="gs" data-i18n="hub.ml">Beta · foco em MLBB</div></div></div>
         <div class="game dis"><div class="gicon wr">WR</div><div><div class="gn">Wild Rift</div><div class="gs" data-i18n="hub.soon">Em breve · Q3</div></div></div>
         <div class="game dis"><div class="gicon pubg">PB</div><div><div class="gn">PUBG Mobile</div><div class="gs" data-i18n="hub.soon">Em breve · Q3</div></div></div>
         <div class="game dis"><div class="gicon r6">R6</div><div><div class="gn">R6 Mobile</div><div class="gs" data-i18n="hub.niche">Nicho · Q4</div></div></div>
@@ -1561,10 +1590,17 @@
       </section>
 
       <!-- SCRIMS / PRACCS -->
+      <section class="view" id="events">
+        <div class="phead">
+          <div><h2><svg class="ico"><use href="#i-trophy"/></svg> <span data-i18n="p.events.t">Eventos</span></h2><p data-i18n="p.events.s">Scrim Nights, Free Cups e Tryouts — o coração ao vivo da COLOSSO. Inscreva seu time e entre quando o evento abrir.</p></div>
+        </div>
+        <div id="eventsList"></div>
+      </section>
+
       <section class="view" id="scrims">
         <div class="phead">
           <div><h2><svg class="ico"><use href="#i-sword"/></svg> <span data-i18n="p.scrim.t">Praccs & Scrims</span></h2><p data-i18n="p.scrim.s">Pedidos abertos de treino. Ache adversário por servidor, rank e horário (no seu fuso).</p></div>
-          <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <div id="scrimActions" style="display:flex;gap:9px;flex-wrap:wrap">
             <button class="btn ghost" onclick="startQuickMatch()"><svg class="ico"><use href="#i-spark"/></svg> <span data-i18n="qm.btn">Partida rápida</span></button>
             <button class="btn" onclick="openModal('scrim')" data-i18n="btn.newScrim">+ Criar pracc</button>
           </div>
@@ -1576,7 +1612,7 @@
           <button class="lbtab" data-tab="hist" onclick="scrimTab('hist',this)" data-i18n="sc.tab.hist">Histórico</button>
         </div>
         <div id="scTabFind">
-          <div class="filters">
+          <div class="filters" id="scrimFilters">
             <div class="fld"><label data-i18n="f.rank">Rank</label>
               <select id="fRank"><option value="" data-i18n="opt.any">Qualquer</option><option>Mítico</option><option>Lenda</option><option>Mestre</option><option>Diamante</option></select></div>
             <div class="fld"><label data-i18n="f.format">Formato</label>
@@ -1712,7 +1748,7 @@
           <h3 data-i18n="how.ac.t">Confiança construída pela comunidade</h3>
           <p class="hd" data-i18n="how.ac.d">Verificação reduz perfis falsos, denúncias ajudam na moderação e a análise de estatísticas destaca comportamentos suspeitos.</p>
           <div class="flow">
-            <div class="flow-step"><div class="fnum" style="background:#7cc1ff">1</div><h4 data-i18n="how.ac.1t">Verificação de ID</h4><p data-i18n="how.ac.1d">Vincular conta Garena/Moonton confirma identidade e dá o selo "Verificado".</p></div>
+            <div class="flow-step"><div class="fnum" style="background:#7cc1ff">1</div><h4 data-i18n="how.ac.1t">Verificação de ID</h4><p data-i18n="how.ac.1d">Adicione seu ID Garena/Moonton ao perfil e receba o selo "Verificado" após moderação.</p></div>
             <div class="flow-step"><div class="fnum" style="background:#bda0ff">2</div><h4 data-i18n="how.ac.2t">Análise de estatística</h4><p data-i18n="how.ac.2d">Algoritmo marca anomalias: saltos de K/D, mira impossível, padrões estranhos.</p></div>
             <div class="flow-step"><div class="fnum" style="background:#ffb020">3</div><h4 data-i18n="how.ac.3t">Denúncias</h4><p data-i18n="how.ac.3d">Reportes pós-jogo; reincidência abre revisão manual e baixa o trust.</p></div>
             <div class="flow-step"><div class="fnum" style="background:#67e3a8">4</div><h4 data-i18n="how.ac.4t">Roadmap</h4><p data-i18n="how.ac.4d">No futuro: explorar integrações oficiais com as publishers. Hoje a proteção é por reputação e moderação.</p></div>
@@ -1792,7 +1828,7 @@
           <div class="ostep"><div class="on2">3</div><h4 data-i18n="org.s3t">Conecte a premiação</h4><p data-i18n="org.s3d">Defina buy-in e prêmio em R$ via Pix/Mercado Pago — pagamentos automáticos.</p></div>
         </div>
         <div style="background:linear-gradient(135deg,rgba(154,107,255,.1),rgba(61,165,255,.05));border:1px solid rgba(154,107,255,.3);border-radius:12px;padding:16px;margin-bottom:22px;font-size:13px;color:var(--muted)" data-i18n-html="org.benefit">
-          <b style="color:var(--txt)">Vantagem do parceiro:</b> audiência mobile pronta, zero custo de dev, visibilidade da marca e dados dos participantes para marketing. White-label sob medida para times, ligas e universidades.
+          <b style="color:var(--txt)">Vantagem do parceiro:</b> audiência mobile pronta, zero custo de dev, visibilidade da marca e insights de participantes. White-label sob medida para times, ligas e universidades.
         </div>
         <h3 style="font-size:17px;font-weight:800;margin:6px 0 14px" data-i18n="org.examples">Exemplos de espaços</h3>
         <div class="org-feat" id="spaceList"></div>
@@ -1896,7 +1932,7 @@ function resetDemo(){
 const I18N={
  PT:{}, // PT is the base (data-i18n default text); keys below override only where needed
  ES:{
-  'nav.home':'Inicio','nav.scrims':'Scrims','nav.lfg':'Equipos','nav.trn':'Torneos','nav.rank':'Ranking','nav.profile':'Perfil','nav.org':'⬡ Organizadores','nav.connect':'⬡ Conectar','nav.org2':'Organizadores',
+  'nav.home':'Inicio','nav.events':'Eventos','nav.scrims':'Scrims','nav.lfg':'Equipos','nav.trn':'Torneos','nav.rank':'Ranking','nav.profile':'Perfil','nav.org':'⬡ Organizadores','nav.connect':'⬡ Conectar','nav.org2':'Organizadores',
   'hero.online':'En línea ahora:','hero.eyebrow':'Entra a la arena · Free Fire y MLBB','hero.h1':'Todo-en-uno para el <em>esports móvil</em> de Latinoamérica',
   'hero.sub':'COLOSSO conecta jugadores, equipos y organizadores: scrims, búsqueda de dúos/squads y torneos con ranking justo, reputación y sistema de denuncias. Servidores en São Paulo y Buenos Aires. Empieza en Free Fire y MLBB.',
   'cta.findTeam':'🔍 Buscar equipo','cta.playScrim':'⚔️ Jugar scrim','cta.createTrn':'🏆 Crear torneo',
@@ -1909,7 +1945,7 @@ const I18N={
   'aud.pl.t':'Para jugadores','aud.pl.p':'Encuentra squad/dúo y entrenos rápido, sigue tu ranking y reputación.','aud.tm.t':'Para equipos','aud.tm.p':'Agenda scrims por horario y servidor, filtra candidatos por estadística, prepárate para torneos.','aud.org.t':'Para organizadores','aud.org.p':'Crea tu "espacio" con marca, llaves y premios — como en Challengermode.',
   'games.title':'Una plataforma — varios juegos','games.lead':'Foco en los juegos que dominan Latinoamérica. Free Fire y MLBB ya disponibles. Vota el próximo título — los votos definen la prioridad del roadmap.','games.roadmap':'Roadmap de títulos',
   'rm1.q':'Ahora · Q2 2026','rm1.s':'Lanzado — scrims, LFG, torneos','rm2.s':'+ ES/PT completo','rm3.s':'+ servidores AR/MX','rm4.g':'Votación de la comunidad','rm4.s':'Próximos títulos por voto',
-  'hub.ff':'Principal · 8.1K en línea','hub.ml':'Activo · 5.4K en línea','hub.soon':'Pronto · Q3','hub.niche':'Nicho · Q4','hub.summary':'Mi resumen','hub.team':'Equipo','hub.rank':'Rango','hub.rep':'Reputación','hub.wallet':'Billetera','hub.premium':'Prioridad en la cola, reputación y análisis de partidas.','hub.connect':'Suscribir',
+  'hub.ff':'Beta · foco en FF','hub.ml':'Beta · foco en MLBB','hub.soon':'Pronto · Q3','hub.niche':'Nicho · Q4','hub.summary':'Mi resumen','hub.team':'Equipo','hub.rank':'Rango','hub.rep':'Reputación','hub.wallet':'Billetera','hub.premium':'Prioridad en la cola, reputación y análisis de partidas.','hub.connect':'Suscribir',
   'p.scrim.t':'⚔️ Búsqueda de scrims','p.scrim.s':'Pedidos abiertos de entreno. Encuentra rival por servidor, rango y horario (en tu zona).','btn.newScrim':'+ Crear pedido',
   'f.rank':'Rango','f.format':'Formato','f.server':'Servidor','f.time':'Horario','f.role':'Rol','f.region':'Región','opt.any':'Cualquiera','opt.now':'Ahora','opt.eve':'Noche','opt.late':'Madrugada','btn.apply':'Aplicar',
   'p.lfg.t':'🧩 Búsqueda de equipo','p.lfg.s':'Jugadores buscando squad/dúo. Filtra por rol, rango y estadística.','btn.myAd':'+ Mi anuncio',
@@ -1917,15 +1953,15 @@ const I18N={
   'p.rank.t':'📊 Ranking · Glória','p.rank.s':'Niveles transparentes y leaderboards — sigue el progreso y la fuerza de los rivales.','elo.how':'Cómo funciona el ranking','elo.desc':'Cada partida ranqueada recalcula el GLR por la fuerza del rival: ganar a uno más fuerte vale más; perder ante uno más fuerte quita menos. El trust-score y la verificación protegen el ranking.',
   'elo.win':'Victoria ','elo.winD':'Más puntos al ganar a un equipo de GLR más alto.','elo.loss':'Derrota ','elo.lossD':'Pierdes menos si caes ante un rival mucho más fuerte.','elo.streak':'Racha ','elo.streakD':'3+ victorias seguidas dan multiplicador.','tier.bronze':'Bronce','tier.silver':'Plata','tier.gold':'Oro','elo.top':'🏆 Top-100 de cada país: sello de season, prioridad en clasificatorias e invitaciones a torneos. Season de 3 meses, luego reset suave.','lb.teams':'Equipos','lb.players':'Jugadores','lb.team':'Equipo','lb.region':'Región',
   'p.how.t':'🔍 Cómo funciona','p.how.s':'Reglas transparentes de ranking, verificación y reputación — sin caja negra.','btn.toRank':'Ver ranking →','how.elo.e':'Ranking GLR','how.elo.t':'Puntos por la fuerza del rival','how.elo.d':'Cada partida recalcula el GLR por la fuerza del oponente. Seis tiers — de Bronce a Champion.','how.beats':'vence a','how.stronger':'rival más fuerte → más puntos',
-  'how.ac.e':'Reputación, verificación y denuncias','how.ac.t':'Confianza construida por la comunidad','how.ac.d':'La verificación reduce perfiles falsos, las denuncias ayudan a la moderación y el análisis de estadísticas resalta comportamientos sospechosos.','how.ac.1t':'Verificación de ID','how.ac.1d':'Vincular cuenta Garena/Moonton confirma identidad y da el sello "Verificado".','how.ac.2t':'Análisis de estadística','how.ac.2d':'El algoritmo marca anomalías: saltos de K/D, puntería imposible, patrones raros.','how.ac.3t':'Reportes','how.ac.3d':'Reportes post-partida; la reincidencia abre revisión manual y baja el trust.','how.ac.4t':'Roadmap','how.ac.4d':'En el futuro: explorar integraciones oficiales con las publishers. Hoy la protección es por reputación y moderación.',
+  'how.ac.e':'Reputación, verificación y denuncias','how.ac.t':'Confianza construida por la comunidad','how.ac.d':'La verificación reduce perfiles falsos, las denuncias ayudan a la moderación y el análisis de estadísticas resalta comportamientos sospechosos.','how.ac.1t':'Verificación de ID','how.ac.1d':'Añade tu ID de Garena/Moonton al perfil y recibe el sello "Verificado" tras moderación.','how.ac.2t':'Análisis de estadística','how.ac.2d':'El algoritmo marca anomalías: saltos de K/D, puntería imposible, patrones raros.','how.ac.3t':'Reportes','how.ac.3d':'Reportes post-partida; la reincidencia abre revisión manual y baja el trust.','how.ac.4t':'Roadmap','how.ac.4d':'En el futuro: explorar integraciones oficiales con las publishers. Hoy la protección es por reputación y moderación.',
   'how.rep.e':'Reputación post-partida','how.rep.t':'Ciclo de confianza contra la toxicidad','how.rep.d':'Tras cada partida los jugadores se califican. El trust-score influye en la calidad de los próximos juegos (principio GankRep).','how.rep.1':'Juega la partida','how.rep.1d':'Scrim o torneo','how.rep.2':'Califica al rival','how.rep.2d':'Estrellas + tags','how.rep.3':'Trust se actualiza','how.rep.3d':'El promedio forma el trust-score','how.rep.4':'Mejores partidas','how.rep.4d':'Trust alto → prioridad',
   'prof.verified':'ID Verificado','prof.captain':'Capitán','prof.accounts':'🔗 Cuentas','prof.edit':'Editar','prof.elo':'GLR · top 4% LATAM','prof.wr':'Win-rate (90d)','prof.rep':'Reputación · 137 reseñas','prof.recent':'Últimas partidas · califica a los rivales',
   'org.eyebrow':'Para organizadores y marcas','org.title':'Crea tu espacio de torneos','org.desc':'Página con tu marca, logo, llaves, chat, buy-in y premios — como el "Space" de Challengermode. Atrae comunidad, patrocinadores y corre ligas con tu nombre.','org.c1':'Marca + URL','org.c2':'Llaves y chat','org.c3':'Buy-in + premio','org.c4':'Análisis de participantes','org.create':'⬡ Crear espacio','org.wl':'Conocer white-label',
-  'org.f1t':'Marca personalizada','org.f1d':'Logo, colores, banner y URL propio del espacio.','org.f2t':'Automatización','org.f2d':'Inscripción, llaves, salas, contraseñas y confirmación de marcador.','org.f3t':'Monetización','org.f3d':'Buy-in, premios vía billetera (Pix/Mercado Pago), patrocinios y analytics.','org.steps':'Empieza en 3 pasos','org.s1t':'Crea el espacio','org.s1d':'Nombre, juego, logo y colores, URL tipo colosso.gg/space/tu-liga.','org.s2t':'Arma el torneo','org.s2d':'Elige la llave, nº de equipos y horario.','org.s3t':'Conecta el premio','org.s3d':'Define buy-in y premio vía Pix/Mercado Pago — pagos automáticos.','org.benefit':'<b style="color:var(--txt)">Ventaja del partner:</b> audiencia móvil lista, cero costo de dev, visibilidad de marca y datos de participantes. White-label a medida para equipos, ligas y universidades.','org.examples':'Ejemplos de espacios',
+  'org.f1t':'Marca personalizada','org.f1d':'Logo, colores, banner y URL propio del espacio.','org.f2t':'Automatización','org.f2d':'Inscripción, llaves, salas, contraseñas y confirmación de marcador.','org.f3t':'Monetización','org.f3d':'Buy-in, premios vía billetera (Pix/Mercado Pago), patrocinios y analytics.','org.steps':'Empieza en 3 pasos','org.s1t':'Crea el espacio','org.s1d':'Nombre, juego, logo y colores, URL tipo colosso.gg/space/tu-liga.','org.s2t':'Arma el torneo','org.s2d':'Elige la llave, nº de equipos y horario.','org.s3t':'Conecta el premio','org.s3d':'Define buy-in y premio vía Pix/Mercado Pago — pagos automáticos.','org.benefit':'<b style="color:var(--txt)">Ventaja del partner:</b> audiencia móvil lista, cero costo de dev, visibilidad de marca e insights de participantes. White-label a medida para equipos, ligas y universidades.','org.examples':'Ejemplos de espacios',
   'ft.brand':'Todo-en-uno para el esports móvil de LATAM: scrims, equipos y torneos con ranking justo.','ft.platform':'Plataforma','ft.lfg':'Búsqueda de equipo','ft.how':'Cómo funciona','ft.community':'Comunidad','ft.feedback':'Dejar feedback','ft.ac':'Reputación y denuncias','ft.integr':'Integraciones','ft.soon':'Próximamente juegos','ft.demo':'prototipo demo v0.6','fab':'Feedback','ft.app':'App móvil','app.get':'Descargar para','app.soon':'Pronto','app.pwa':'Instalar como PWA'
  },
  EN:{
-  'nav.home':'Home','nav.scrims':'Scrims','nav.lfg':'Teams','nav.trn':'Tournaments','nav.rank':'Ranking','nav.profile':'Profile','nav.org':'⬡ Organizers','nav.connect':'⬡ Connect','nav.org2':'Organizers',
+  'nav.home':'Home','nav.events':'Events','nav.scrims':'Scrims','nav.lfg':'Teams','nav.trn':'Tournaments','nav.rank':'Ranking','nav.profile':'Profile','nav.org':'⬡ Organizers','nav.connect':'⬡ Connect','nav.org2':'Organizers',
   'hero.online':'Online now:','hero.eyebrow':'Enter the arena · Free Fire & MLBB','hero.h1':'All-in-one for <em>mobile esports</em> in Latin America',
   'hero.sub':'COLOSSO connects players, teams and organizers: scrims, duo/squad finder and tournaments with fair ranking, reputation and a reporting system. Servers in São Paulo and Buenos Aires. Start with Free Fire and MLBB.',
   'cta.findTeam':'🔍 Find team','cta.playScrim':'⚔️ Play scrim','cta.createTrn':'🏆 Create tournament',
@@ -1938,7 +1974,7 @@ const I18N={
   'aud.pl.t':'For players','aud.pl.p':'Find squad/duo and practice fast, track your ranking and reputation.','aud.tm.t':'For teams','aud.tm.p':'Book scrims by time and server, filter candidates by stats, prep for tournaments.','aud.org.t':'For organizers','aud.org.p':'Create your "space" with branding, brackets and prizes — like Challengermode.',
   'games.title':'One platform — many games','games.lead':'Focus on the games that dominate Latin America. Free Fire and MLBB live now. Vote the next title — votes set roadmap priority.','games.roadmap':'Titles roadmap',
   'rm1.q':'Now · Q2 2026','rm1.s':'Live — scrims, LFG, tournaments','rm2.s':'+ full ES/PT','rm3.s':'+ AR/MX servers','rm4.g':'Community vote','rm4.s':'Next titles by vote',
-  'hub.ff':'Main · 8.1K online','hub.ml':'Active · 5.4K online','hub.soon':'Soon · Q3','hub.niche':'Niche · Q4','hub.summary':'My summary','hub.team':'Team','hub.rank':'Rank','hub.rep':'Reputation','hub.wallet':'Wallet','hub.premium':'Queue priority, reputation and match analysis.','hub.connect':'Subscribe',
+  'hub.ff':'Beta · FF focus','hub.ml':'Beta · MLBB focus','hub.soon':'Soon · Q3','hub.niche':'Niche · Q4','hub.summary':'My summary','hub.team':'Team','hub.rank':'Rank','hub.rep':'Reputation','hub.wallet':'Wallet','hub.premium':'Queue priority, reputation and match analysis.','hub.connect':'Subscribe',
   'p.scrim.t':'⚔️ Scrim finder','p.scrim.s':'Open practice requests. Find an opponent by server, rank and time (your timezone).','btn.newScrim':'+ New request',
   'f.rank':'Rank','f.format':'Format','f.server':'Server','f.time':'Time','f.role':'Role','f.region':'Region','opt.any':'Any','opt.now':'Now','opt.eve':'Evening','opt.late':'Late','btn.apply':'Apply',
   'p.lfg.t':'🧩 Team finder','p.lfg.s':'Players looking for squad/duo. Filter by role, rank and stats.','btn.myAd':'+ My listing',
@@ -1946,15 +1982,15 @@ const I18N={
   'p.rank.t':'📊 Ranking · Glória','p.rank.s':'Transparent tiers and leaderboards — track progress and opponent strength.','elo.how':'How ranking works','elo.desc':'Each ranked match recalculates GLR by opponent strength: beating a stronger team is worth more; losing to a stronger one costs less. Trust-score and verification protect the ranking.',
   'elo.win':'Win ','elo.winD':'More points for beating a higher-GLR team.','elo.loss':'Loss ','elo.lossD':'You lose less if you fall to a much stronger opponent.','elo.streak':'Streak ','elo.streakD':'3+ wins in a row give a multiplier.','tier.bronze':'Bronze','tier.silver':'Silver','tier.gold':'Gold','elo.top':'🏆 Top-100 per country: season badge, qualifier priority and partner-tournament invites. 3-month season, then soft reset.','lb.teams':'Teams','lb.players':'Players','lb.team':'Team','lb.region':'Region',
   'p.how.t':'🔍 How it works','p.how.s':'Transparent ranking, verification and reputation rules — no black box.','btn.toRank':'See ranking →','how.elo.e':'GLR ranking','how.elo.t':'Points by opponent strength','how.elo.d':'Each match recalculates GLR by opponent strength. Six tiers — Bronze to Champion.','how.beats':'beats','how.stronger':'stronger opponent → more points',
-  'how.ac.e':'Reputation, verification & reports','how.ac.t':'Trust built by the community','how.ac.d':'Verification cuts fake profiles, reports help moderation, and stats analysis flags suspicious behavior.','how.ac.1t':'ID verification','how.ac.1d':'Linking Garena/Moonton confirms identity and grants the "Verified" badge.','how.ac.2t':'Stat analysis','how.ac.2d':'Algorithm flags anomalies: K/D spikes, impossible aim, odd patterns.','how.ac.3t':'Reports','how.ac.3d':'Post-match reports; repeats trigger manual review and lower trust.','how.ac.4t':'Roadmap','how.ac.4d':'Future: explore official integrations with publishers. Today protection is reputation and moderation.',
+  'how.ac.e':'Reputation, verification & reports','how.ac.t':'Trust built by the community','how.ac.d':'Verification cuts fake profiles, reports help moderation, and stats analysis flags suspicious behavior.','how.ac.1t':'ID verification','how.ac.1d':'Add your Garena/Moonton ID to your profile and get a verified badge after moderation.','how.ac.2t':'Stat analysis','how.ac.2d':'Algorithm flags anomalies: K/D spikes, impossible aim, odd patterns.','how.ac.3t':'Reports','how.ac.3d':'Post-match reports; repeats trigger manual review and lower trust.','how.ac.4t':'Roadmap','how.ac.4d':'Future: explore official integrations with publishers. Today protection is reputation and moderation.',
   'how.rep.e':'Post-match reputation','how.rep.t':'Trust loop against toxicity','how.rep.d':'After each match players rate each other. Trust-score affects future match quality (GankRep principle).','how.rep.1':'Play the match','how.rep.1d':'Scrim or tournament','how.rep.2':'Rate the rival','how.rep.2d':'Stars + tags','how.rep.3':'Trust updates','how.rep.3d':'Average forms trust-score','how.rep.4':'Better matches','how.rep.4d':'High trust → priority',
   'prof.verified':'Verified ID','prof.captain':'Captain','prof.accounts':'🔗 Accounts','prof.edit':'Edit','prof.elo':'GLR · top 4% LATAM','prof.wr':'Win-rate (90d)','prof.rep':'Reputation · 137 reviews','prof.recent':'Recent matches · rate rivals',
   'org.eyebrow':'For organizers and brands','org.title':'Create your tournament space','org.desc':'A page with your brand, logo, brackets, chat, buy-in and prizes — like Challengermode "Space". Attract community, sponsors and run leagues under your name.','org.c1':'Brand + URL','org.c2':'Brackets & chat','org.c3':'Buy-in + prize','org.c4':'Participant analytics','org.create':'⬡ Create space','org.wl':'About white-label',
-  'org.f1t':'Custom branding','org.f1d':'Logo, colors, banner and your own space URL.','org.f2t':'Automation','org.f2d':'Registration, brackets, rooms, server passwords and score confirmation.','org.f3t':'Monetization','org.f3d':'Buy-in, wallet payouts (Pix/Mercado Pago), sponsorships and analytics.','org.steps':'Launch in 3 steps','org.s1t':'Create the space','org.s1d':'Name, game, logo and colors, URL like colosso.gg/space/your-league.','org.s2t':'Set up the tournament','org.s2d':'Pick the bracket, team count and schedule.','org.s3t':'Connect the prize','org.s3d':'Set buy-in and prize via Pix/Mercado Pago — automatic payouts.','org.benefit':'<b style="color:var(--txt)">Partner upside:</b> ready mobile audience, zero dev cost, brand visibility and participant data. White-label for teams, leagues and universities.','org.examples':'Example spaces',
+  'org.f1t':'Custom branding','org.f1d':'Logo, colors, banner and your own space URL.','org.f2t':'Automation','org.f2d':'Registration, brackets, rooms, server passwords and score confirmation.','org.f3t':'Monetization','org.f3d':'Buy-in, wallet payouts (Pix/Mercado Pago), sponsorships and analytics.','org.steps':'Launch in 3 steps','org.s1t':'Create the space','org.s1d':'Name, game, logo and colors, URL like colosso.gg/space/your-league.','org.s2t':'Set up the tournament','org.s2d':'Pick the bracket, team count and schedule.','org.s3t':'Connect the prize','org.s3d':'Set buy-in and prize via Pix/Mercado Pago — automatic payouts.','org.benefit':'<b style="color:var(--txt)">Partner upside:</b> ready mobile audience, zero dev cost, brand visibility and participant insights. White-label for teams, leagues and universities.','org.examples':'Example spaces',
   'ft.brand':'All-in-one for LATAM mobile esports: scrims, teams and tournaments with fair ranking.','ft.platform':'Platform','ft.lfg':'Team finder','ft.how':'How it works','ft.community':'Community','ft.feedback':'Give feedback','ft.ac':'Reputation & reports','ft.integr':'Integrations','ft.soon':'Coming soon games','ft.demo':'demo prototype v0.6','fab':'Feedback','ft.app':'Mobile app','app.get':'Download for','app.soon':'Soon','app.pwa':'Install as PWA'
  },
  RU:{
-  'nav.home':'Главная','nav.scrims':'Скримы','nav.lfg':'Команды','nav.trn':'Турниры','nav.rank':'Рейтинг','nav.profile':'Профиль','nav.org':'⬡ Организаторам','nav.connect':'⬡ Подключить','nav.org2':'Организаторам',
+  'nav.home':'Главная','nav.events':'События','nav.scrims':'Скримы','nav.lfg':'Команды','nav.trn':'Турниры','nav.rank':'Рейтинг','nav.profile':'Профиль','nav.org':'⬡ Организаторам','nav.connect':'⬡ Подключить','nav.org2':'Организаторам',
   'hero.online':'Сейчас онлайн:','hero.eyebrow':'Выйди на арену · Free Fire и MLBB','hero.h1':'Всё-в-одном для <em>мобильного киберспорта</em> Латинской Америки',
   'hero.sub':'COLOSSO объединяет игроков, команды и организаторов: скримы, поиск дуо/сквадов и турниры с честным рейтингом, репутацией и системой жалоб. Серверы в Сан-Паулу и Буэнос-Айресе. Старт — Free Fire и MLBB.',
   'cta.findTeam':'🔍 Найти команду','cta.playScrim':'⚔️ Сыграть скрим','cta.createTrn':'🏆 Создать турнир',
@@ -1967,7 +2003,7 @@ const I18N={
   'aud.pl.t':'Игрокам','aud.pl.p':'Быстро находи сквад/дуо и тренировки, отслеживай рейтинг и репутацию.','aud.tm.t':'Командам','aud.tm.p':'Назначай скримы по времени и серверу, фильтруй кандидатов по статистике, готовься к турнирам.','aud.org.t':'Организаторам','aud.org.p':'Создавай «пространство» с брендингом, сетками и призовыми — как у Challengermode.',
   'games.title':'Одна платформа — много игр','games.lead':'Фокус на играх, доминирующих в Латинской Америке. Free Fire и MLBB уже доступны. Голосуй за следующий тайтл — голоса задают приоритет роадмапа.','games.roadmap':'Дорожная карта тайтлов',
   'rm1.q':'Сейчас · Q2 2026','rm1.s':'Запущено — скримы, LFG, турниры','rm2.s':'+ полный ES/PT','rm3.s':'+ серверы AR/MX','rm4.g':'Голосование сообщества','rm4.s':'Следующие тайтлы по голосам',
-  'hub.ff':'Основная · 8.1K онлайн','hub.ml':'Активна · 5.4K онлайн','hub.soon':'Скоро · Q3','hub.niche':'Ниша · Q4','hub.summary':'Моя сводка','hub.team':'Команда','hub.rank':'Ранг','hub.rep':'Репутация','hub.wallet':'Кошелёк','hub.premium':'Приоритет в очереди, репутация и анализ матчей.','hub.connect':'Подписка',
+  'hub.ff':'Бета · фокус FF','hub.ml':'Бета · фокус MLBB','hub.soon':'Скоро · Q3','hub.niche':'Ниша · Q4','hub.summary':'Моя сводка','hub.team':'Команда','hub.rank':'Ранг','hub.rep':'Репутация','hub.wallet':'Кошелёк','hub.premium':'Приоритет в очереди, репутация и анализ матчей.','hub.connect':'Подписка',
   'p.scrim.t':'⚔️ Поиск скримов','p.scrim.s':'Открытые запросы на тренировки. Найди соперника по серверу, рангу и времени (в твоём часовом поясе).','btn.newScrim':'+ Создать запрос',
   'f.rank':'Ранг','f.format':'Формат','f.server':'Сервер','f.time':'Время','f.role':'Роль','f.region':'Регион','opt.any':'Любой','opt.now':'Сейчас','opt.eve':'Вечер','opt.late':'Ночь','btn.apply':'Применить',
   'p.lfg.t':'🧩 Поиск команды','p.lfg.s':'Игроки в поиске сквада/дуо. Фильтруй по роли, рангу и статистике.','btn.myAd':'+ Моё объявление',
@@ -1975,11 +2011,11 @@ const I18N={
   'p.rank.t':'📊 Рейтинг · Glória','p.rank.s':'Прозрачные уровни и лидерборды — отслеживай прогресс и силу соперников.','elo.how':'Как работает рейтинг','elo.desc':'Каждый ранкед-матч пересчитывает GLR по силе соперника: победа над сильным даёт больше, поражение от сильного отнимает меньше. Trust-score и верификация защищают рейтинг.',
   'elo.win':'Победа ','elo.winD':'Больше очков за победу над командой с более высоким GLR.','elo.loss':'Поражение ','elo.lossD':'Меньше потеря при проигрыше явно более сильному.','elo.streak':'Серия ','elo.streakD':'3+ победы подряд дают множитель.','tier.bronze':'Бронза','tier.silver':'Серебро','tier.gold':'Золото','elo.top':'🏆 Топ-100 каждой страны: сезонный бейдж, приоритет в квалификациях и приглашения на турниры. Сезон 3 месяца, затем мягкий сброс.','lb.teams':'Команды','lb.players':'Игроки','lb.team':'Команда','lb.region':'Регион',
   'p.how.t':'🔍 Как это работает','p.how.s':'Прозрачные правила рейтинга, верификации и репутации — без чёрного ящика.','btn.toRank':'К рейтингу →','how.elo.e':'GLR-рейтинг','how.elo.t':'Очки за силу соперника','how.elo.d':'Каждый матч пересчитывает GLR по силе оппонента. Шесть тиров — от Бронзы до Champion.','how.beats':'побеждает','how.stronger':'соперник сильнее → больше очков',
-  'how.ac.e':'Репутация, верификация и жалобы','how.ac.t':'Доверие, построенное сообществом','how.ac.d':'Верификация снижает число фейков, жалобы помогают модерации, а анализ статистики подсвечивает подозрительное поведение.','how.ac.1t':'Проверка ID','how.ac.1d':'Привязка Garena/Moonton подтверждает личность и даёт бейдж «Verified».','how.ac.2t':'Анализ статистики','how.ac.2d':'Алгоритм отмечает аномалии: скачки K/D, невозможный аим, странные паттерны.','how.ac.3t':'Репорты','how.ac.3d':'Жалобы после матча; повторные — ручная проверка и снижение trust.','how.ac.4t':'Планы','how.ac.4d':'В будущем: официальные интеграции с издателями. Сейчас защита — это репутация и модерация.',
+  'how.ac.e':'Репутация, верификация и жалобы','how.ac.t':'Доверие, построенное сообществом','how.ac.d':'Верификация снижает число фейков, жалобы помогают модерации, а анализ статистики подсвечивает подозрительное поведение.','how.ac.1t':'Проверка ID','how.ac.1d':'Добавьте свой ID Garena/Moonton в профиль и получите бейдж «Verified» после модерации.','how.ac.2t':'Анализ статистики','how.ac.2d':'Алгоритм отмечает аномалии: скачки K/D, невозможный аим, странные паттерны.','how.ac.3t':'Репорты','how.ac.3d':'Жалобы после матча; повторные — ручная проверка и снижение trust.','how.ac.4t':'Планы','how.ac.4d':'В будущем: официальные интеграции с издателями. Сейчас защита — это репутация и модерация.',
   'how.rep.e':'Репутация после матча','how.rep.t':'Цикл доверия против токсичности','how.rep.d':'После каждого матча игроки оценивают друг друга. Trust-score влияет на качество будущих матчей (принцип GankRep).','how.rep.1':'Сыграй матч','how.rep.1d':'Скрим или турнир','how.rep.2':'Оцени соперника','how.rep.2d':'Звёзды + теги','how.rep.3':'Trust обновляется','how.rep.3d':'Средняя формирует trust-score','how.rep.4':'Лучше матчи','how.rep.4d':'Высокий trust → приоритет',
   'prof.verified':'ID Verified','prof.captain':'Капитан','prof.accounts':'🔗 Аккаунты','prof.edit':'Изменить','prof.elo':'GLR · топ 4% LATAM','prof.wr':'Win-rate (90д)','prof.rep':'Репутация · 137 отзывов','prof.recent':'Последние матчи · оцени соперников',
   'org.eyebrow':'Для организаторов и брендов','org.title':'Создай своё пространство для турниров','org.desc':'Страница с твоим брендом, логотипом, сетками, чатом, buy-in и призовыми — как «Space» у Challengermode. Привлекай сообщество, спонсоров и проводи лиги под своим именем.','org.c1':'Бренд + URL','org.c2':'Сетки и чат','org.c3':'Buy-in + призовой','org.c4':'Аналитика участников','org.create':'⬡ Создать пространство','org.wl':'Про white-label',
-  'org.f1t':'Кастомный брендинг','org.f1d':'Логотип, цвета, баннер и свой URL пространства.','org.f2t':'Автоматизация','org.f2d':'Регистрация, сетки, комнаты, пароли серверов и подтверждение счёта.','org.f3t':'Монетизация','org.f3d':'Buy-in, выплаты через кошелёк (Pix/Mercado Pago), спонсоры и аналитика.','org.steps':'Запуск за 3 шага','org.s1t':'Создай пространство','org.s1d':'Название, игра, логотип и цвета, URL вида colosso.gg/space/your-league.','org.s2t':'Настрой турнир','org.s2d':'Выбери сетку, число команд и расписание.','org.s3t':'Подключи призовой','org.s3d':'Укажи buy-in и приз через Pix/Mercado Pago — выплаты автоматом.','org.benefit':'<b style="color:var(--txt)">Выгода партнёра:</b> готовая мобильная аудитория, ноль затрат на разработку, узнаваемость бренда и данные участников. White-label под ключ для команд, лиг и университетов.','org.examples':'Примеры пространств',
+  'org.f1t':'Кастомный брендинг','org.f1d':'Логотип, цвета, баннер и свой URL пространства.','org.f2t':'Автоматизация','org.f2d':'Регистрация, сетки, комнаты, пароли серверов и подтверждение счёта.','org.f3t':'Монетизация','org.f3d':'Buy-in, выплаты через кошелёк (Pix/Mercado Pago), спонсоры и аналитика.','org.steps':'Запуск за 3 шага','org.s1t':'Создай пространство','org.s1d':'Название, игра, логотип и цвета, URL вида colosso.gg/space/your-league.','org.s2t':'Настрой турнир','org.s2d':'Выбери сетку, число команд и расписание.','org.s3t':'Подключи призовой','org.s3d':'Укажи buy-in и приз через Pix/Mercado Pago — выплаты автоматом.','org.benefit':'<b style="color:var(--txt)">Выгода партнёра:</b> готовая мобильная аудитория, ноль затрат на разработку, узнаваемость бренда и аналитика участников. White-label под ключ для команд, лиг и университетов.','org.examples':'Примеры пространств',
   'ft.brand':'Всё-в-одном для мобильного киберспорта LATAM: скримы, команды и турниры с честным рейтингом.','ft.platform':'Платформа','ft.lfg':'Поиск команды','ft.how':'Как это работает','ft.community':'Сообщество','ft.feedback':'Оставить отзыв','ft.ac':'Репутация и жалобы','ft.integr':'Интеграции','ft.soon':'Скоро игры','ft.demo':'демо-прототип v0.6','fab':'Отзыв','ft.app':'Приложение','app.get':'Скачать для','app.soon':'Скоро','app.pwa':'Установить как PWA'
  }
 };
@@ -2100,10 +2136,10 @@ let players=[
   {name:'DiegoZD',role:'Rusher',rank:'Mítico',reg:'CO',kd:2.51,wr:'63%',hrs:'1.9K',rep:4.6,elo:2260,trust:88,ver:true,lang:'ES',game:'Free Fire',lft:true,team:'—',tags:['Fragger','Mira quente','Mic+'],maps:['Bermuda','Purgatório'],recent:[['Estral','W','13-4'],['paiN','W','13-11'],['LOUD','L','12-13']],ach:['🔥 Maior killstreak da season']},
 ];
 const servers=[
-  {city:'São Paulo',flag:'🇧🇷',ping:14,load:62,online:'8.1K'},
-  {city:'Buenos Aires',flag:'🇦🇷',ping:22,load:48,online:'3.4K'},
-  {city:'Santiago',flag:'🇨🇱',ping:31,load:35,online:'1.2K'},
-  {city:'Cidade do México',flag:'🇲🇽',ping:46,load:55,online:'2.7K'},
+  {city:'São Paulo',flag:'🇧🇷',ping:14,load:62},
+  {city:'Buenos Aires',flag:'🇦🇷',ping:22,load:48},
+  {city:'Santiago',flag:'🇨🇱',ping:31,load:35},
+  {city:'Cidade do México',flag:'🇲🇽',ping:46,load:55},
 ];
 let myScrims=[
   {opp:'Fluxo',whenPT:'Hoje 20:00',whenES:'Hoy 20:00',whenEN:'Today 20:00',whenRU:'Сегодня 20:00',cd:'02:14:00',srv:'BR · São Paulo',fmt:'Squad (4)',pass:'CLS-8821',rank:'Mítico'},
@@ -2256,6 +2292,8 @@ function go(view){
   if(view==='home'){shell.style.display='none';document.getElementById('home').classList.add('on');}
   else{shell.style.display='grid';document.getElementById(view).classList.add('on');}
   if(view==='dashboard')renderDashboard();
+  if(view==='events')renderEvents();
+  if(view==='scrims')renderScrims();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.go)));
@@ -2283,10 +2321,103 @@ const TX={ // localized helper text
   noNotif:{PT:'Sem notificações',ES:'Sin notificaciones',EN:'No notifications',RU:'Нет уведомлений'}
 };
 function tx(k){return (TX[k]&&TX[k][LANG])||(TX[k]&&TX[k].PT)||'';}
+/* ===================== EVENTS — event-driven scrims ===================== */
+// Demo events (frontend only; same shape as a future Supabase `events` table).
+// Dates are computed relative to "now" so a sensible event is always upcoming.
+function buildDemoEvents(){
+  const now=new Date(), day=86400000;
+  const nextDow=(dow,h,m)=>{ const d=new Date(now); d.setHours(h,m,0,0); let add=(dow-d.getDay()+7)%7; if(add===0 && now>d) add=7; d.setDate(d.getDate()+add); return d; };
+  const thu=nextDow(4,20,0), sat=nextDow(6,18,0), sun=nextDow(0,16,0);
+  const iso=d=>new Date(d).toISOString();
+  return [
+    { id:'scrim-night-br-001', title:'COLOSSO Scrim Night', type:'scrim_night', game:'Free Fire', region:'Brasil', server:'São Paulo',
+      slots:16, registered:12, registrationStart:iso(now-day), checkInStart:iso(thu-30*60000), matchStart:iso(thu), matchEnd:iso(+thu+2*3600000) },
+    { id:'tryout-day-001', title:'Tryout Day · LFT', type:'tryout', game:'Mobile Legends', region:'LATAM', server:'São Paulo',
+      slots:40, registered:18, registrationStart:iso(now-day), checkInStart:iso(sun-30*60000), matchStart:iso(sun), matchEnd:iso(+sun+2*3600000) },
+    { id:'free-cup-br-001', title:'COLOSSO Free Cup', type:'cup', game:'Free Fire', region:'Brasil', server:'São Paulo',
+      slots:32, registered:7, registrationStart:iso(+now+2*day), checkInStart:iso(sat-45*60000), matchStart:iso(sat), matchEnd:iso(+sat+3*3600000) },
+  ];
+}
+let EVENTS = buildDemoEvents();
+let evState = (typeof LS!=='undefined' && LS.get('evState')) || {};
+function setEv(id,patch){ evState[id]=Object.assign({},evState[id],patch); try{LS.set('evState',evState);}catch(e){} }
+function getEv(id){ return evState[id]||{}; }
+function getEventState(ev){ const n=Date.now();
+  if(n < +new Date(ev.registrationStart)) return 'upcoming';
+  if(n < +new Date(ev.checkInStart))      return 'registration_open';
+  if(n < +new Date(ev.matchStart))        return 'checkin_open';
+  if(n < +new Date(ev.matchEnd))          return 'live';
+  return 'finished'; }
+function getNextEvent(){ return EVENTS.filter(e=>getEventState(e)!=='finished').sort((a,b)=>+new Date(a.matchStart)-+new Date(b.matchStart))[0]||null; }
+function nextScrimNight(){ return EVENTS.filter(e=>e.type==='scrim_night'&&getEventState(e)!=='finished').sort((a,b)=>+new Date(a.matchStart)-+new Date(b.matchStart))[0]||null; }
+function liveScrimNight(){ return EVENTS.find(e=>e.type==='scrim_night'&&getEventState(e)==='live')||null; }
+function fmtCountdown(ms){ if(ms<0)ms=0; const s=Math.floor(ms/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),ss=s%60;
+  return d>0?`${d}d ${h}h ${m}m`:h>0?`${h}h ${m}m ${ss}s`:`${m}m ${ss}s`; }
+function fmtWindow(ev){ const s=new Date(ev.matchStart),e=new Date(ev.matchEnd); const dn=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'][s.getDay()];
+  const hm=d=>String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); return `${dn} ${hm(s)}–${hm(e)}`; }
+function evStateBadge(st){ const m={
+  upcoming:['Em breve','#3da5ff','rgba(61,165,255,.14)','rgba(61,165,255,.32)'],
+  registration_open:['Inscrições abertas','#27d07a','rgba(39,208,122,.14)','rgba(39,208,122,.32)'],
+  checkin_open:['Check-in aberto','#ffb020','rgba(255,176,32,.13)','rgba(255,176,32,.3)'],
+  live:['AO VIVO','#27d07a','rgba(39,208,122,.16)','rgba(39,208,122,.4)'],
+  finished:['Encerrado','#8a93a8','rgba(138,147,168,.12)','rgba(138,147,168,.3)']}[st];
+  return `<span class="evbadge" style="color:${m[1]};background:${m[2]};border:1px solid ${m[3]}">${st==='live'?`<span class="evdot" style="background:${m[1]};box-shadow:0 0 8px ${m[1]}"></span>`:''}${m[0]}</span>`; }
+function refreshEventViews(){ try{renderEvents();}catch(e){} try{renderScrims();}catch(e){} }
+function eventRegister(id){ if(!requireAuth())return; const ev=EVENTS.find(e=>e.id===id); if(!ev)return;
+  if(!getEv(id).registered){ ev.registered=Math.min(ev.slots,ev.registered+1); setEv(id,{registered:true}); }
+  toast('Time inscrito na '+ev.title+' ✓'); go('events'); refreshEventViews(); }
+function eventWaitlist(id){ if(!requireAuth())return; setEv(id,{waitlisted:true}); toast('Você entrou na lista de espera 📝'); refreshEventViews(); }
+function eventCheckin(id){ if(!requireAuth())return; setEv(id,{checkedIn:true}); toast('Check-in confirmado ✓'); refreshEventViews(); }
+function eventNotify(id){ if(!requireAuth())return; setEv(id,{notify:true}); toast('Vamos te avisar quando abrir 🔔'); refreshEventViews(); }
+function renderEventDetail(ev){
+  const st=getEventState(ev), me=getEv(ev.id);
+  const rs=+new Date(ev.registrationStart), cs=+new Date(ev.checkInStart), ms=+new Date(ev.matchStart);
+  const pct=Math.round(ev.registered/ev.slots*100);
+  const meta=`<div class="evmeta">🎮 <b>${esc(ev.game)}</b> · 📍 ${esc(ev.region)} · 🌐 ${esc(ev.server)}</div>`;
+  const slots=`<div class="evslots"><div class="evbar"><i style="width:${pct}%"></i></div><span>${ev.registered}/${ev.slots} times</span></div>`;
+  const win=`<div class="evchip">🕑 ${fmtWindow(ev)} BRT</div>`;
+  let body, acts;
+  if(st==='upcoming'){
+    body=`<p class="evsub">Evento agendado. Inscrições abrem em <b data-countdown="${rs}">${fmtCountdown(rs-Date.now())}</b>.</p>${win}`;
+    acts=`<button class="btn" onclick="eventNotify('${ev.id}')">${me.notify?'🔔 Avisaremos':'🔔 Avise-me'}</button><button class="btn ghost" onclick="eventWaitlist('${ev.id}')">${me.waitlisted?'✓ Na lista':'Lista de espera'}</button>`;
+  } else if(st==='registration_open'){
+    body=`<p class="evsub">Inscrições abertas · fecham em <b data-countdown="${cs}">${fmtCountdown(cs-Date.now())}</b>.</p>${slots}${win}`;
+    acts=me.registered?`<button class="btn" disabled>✓ Time inscrito</button><button class="btn ghost" onclick="openChat()">Convidar squad</button>`
+      :`<button class="btn" onclick="eventRegister('${ev.id}')">Inscreva seu time</button><button class="btn ghost" onclick="eventWaitlist('${ev.id}')">Lista de espera</button>`;
+  } else if(st==='checkin_open'){
+    body=`<p class="evsub">Check-in aberto · partidas começam em <b data-countdown="${ms}">${fmtCountdown(ms-Date.now())}</b>.</p>${slots}<div class="evwarn">⚠️ Times sem check-in podem perder a vaga.</div>`;
+    acts=me.checkedIn?`<button class="btn grn" disabled>✓ Check-in feito</button>`:`<button class="btn" onclick="eventCheckin('${ev.id}')">Fazer check-in</button>`;
+  } else if(st==='live'){
+    const rooms=[['LOUD','Fluxo'],['paiN','9z'],['RED','Furious']].map(p=>`<div class="evroom"><span>${p[0]}</span><b>VS</b><span>${p[1]}</span><button class="btn sm" onclick="go('scrims')">Sala</button></div>`).join('');
+    body=`<p class="evsub">🔴 Scrim Night AO VIVO · salas de partida liberadas às ${fmtWindow(ev).split(' ')[1]}.</p><div class="evrooms">${rooms}</div>`;
+    acts=`<button class="btn" onclick="go('scrims')">Ir para as salas</button>`;
+  } else {
+    const nx=nextScrimNight();
+    body=`<p class="evsub">Evento encerrado.</p><div class="evstats"><span><b>${Math.round(ev.registered*1.5)}</b> partidas</span><span><b>${ev.registered}</b> times no check-in</span><span>MVP: <b>—</b></span></div>`;
+    acts=`<button class="btn ghost" onclick="go('events')">Ver resultados</button>${nx?`<button class="btn" onclick="eventRegister('${nx.id}')">Entrar na próxima</button>`:''}`;
+  }
+  return `<div class="card evcard"><div class="evhead"><h3>${esc(ev.title)}</h3>${evStateBadge(st)}</div>${meta}<div class="evbody">${body}</div><div class="evacts">${acts}</div></div>`;
+}
+function renderEvents(){ const el=document.getElementById('eventsList'); if(!el)return;
+  const sorted=EVENTS.slice().sort((a,b)=>+new Date(a.matchStart)-+new Date(b.matchStart));
+  el.innerHTML=sorted.map(renderEventDetail).join(''); }
+function renderScrimsGate(){ const nx=nextScrimNight()||getNextEvent();
+  return `<div class="gate-hero"><div class="lk">🔒</div><h3>Scrims fechados</h3>
+    <p class="msub" style="max-width:460px;margin:0 auto">Os scrims abrem durante as <b>Scrim Nights</b> agendadas. Inscreva seu time no próximo evento.</p></div>
+    ${nx?renderEventDetail(nx):'<div class="empty">Nenhum evento agendado ainda.</div>'}
+    <div style="text-align:center;margin-top:12px"><button class="btn ghost" onclick="go('events')">Ver todos os eventos</button></div>`; }
+
+/* ===================== SCRIMS (open only during a live Scrim Night) ===================== */
 function renderScrims(){
+  const acts=document.getElementById('scrimActions'), filt=document.getElementById('scrimFilters'), el=document.getElementById('scrimList');
+  if(!el)return;
+  if(!liveScrimNight()){            // gated: no live Scrim Night → locked state + next event
+    if(acts)acts.style.display='none'; if(filt)filt.style.display='none';
+    el.innerHTML=renderScrimsGate(); return;
+  }
+  if(acts)acts.style.display=''; if(filt)filt.style.display='';   // live → match rooms (real scrims)
   const r=val('fRank'),fm=val('fFmt'),rg=val('fReg'),tm=val('fTime');
   const rows=scrims.map((s,idx)=>({s,idx})).filter(({s})=>(!r||s.rank.includes(r))&&(!fm||s.fmt===fm)&&(!rg||s.reg===rg)&&(!tm||s.time===tm));
-  const el=document.getElementById('scrimList');
   if(!rows.length){el.innerHTML=emptyState('⚔️',tx('noScrimT'),tx('noScrimD'),tx('noScrimB'),"openModal('scrim')");return;}
   el.innerHTML=rows.map(({s,idx})=>`
     <div class="scrim">
@@ -2342,7 +2473,7 @@ function renderServers(){
       <div class="city">${s.flag} ${s.city}</div>
       <div class="ping ${cls}">${s.ping}<small> ms</small></div>
       <div class="load"><i style="width:${s.load}%;background:${lc}"></i></div>
-      <div class="meta2"><span>${s.online} ${onlineLbl}</span><span>${s.load}% load</span></div>
+      <div class="meta2"><span>Beta</span></div>
     </div>`;}).join('');
 }
 function scrimTab(tab,btn){
@@ -2598,7 +2729,7 @@ function renderHist(){
       </span>
     </div>`).join('');
 }
-function renderAll(){ renderScrims();renderServers();renderLFG();renderTeams();renderTrn();renderBracket();renderHist();renderSoon();renderLeaderboard(lbKind);renderSpaces();renderDashboard(); }
+function renderAll(){ renderEvents();renderScrims();renderServers();renderLFG();renderTeams();renderTrn();renderBracket();renderHist();renderSoon();renderLeaderboard(lbKind);renderSpaces();renderDashboard(); }
 
 /* ----- player detail modal ----- */
 function openPlayer(name){
@@ -2905,6 +3036,15 @@ function reportTarget(type,id,label){
     .then(()=>toast(({PT:'Obrigado — enviado para moderação',ES:'Gracias — enviado a moderación',EN:'Thanks — sent to moderation',RU:'Спасибо — отправлено на модерацию'}[L])))
     .catch(e=>{ console.warn('report',e.message); toast(({PT:'Não foi possível enviar',ES:'No se pudo enviar',EN:'Could not send',RU:'Не удалось отправить'}[L])); });
 }
+// live countdown ticker — updates timers every second and re-renders when a
+// milestone passes (so events auto-advance upcoming → registration → live → finished)
+setInterval(()=>{
+  let flipped=false;
+  document.querySelectorAll('[data-countdown]').forEach(el=>{ const t=+el.getAttribute('data-countdown'); const left=t-Date.now();
+    el.textContent=fmtCountdown(left); if(left<=0) flipped=true; });
+  if(flipped){ try{ if(document.getElementById('events')?.classList.contains('on')) renderEvents();
+    if(document.getElementById('scrims')?.classList.contains('on')) renderScrims(); }catch(e){} }
+}, 1000);
 function cleanAuthUrl(){
   // strip any OAuth tokens/code/error left in the URL so retries start fresh
   const raw = (window.location.hash||'') + (window.location.search||'');
