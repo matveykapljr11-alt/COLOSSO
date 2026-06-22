@@ -30,7 +30,7 @@
 <script type="module">
   if (window.COLOSSO_ENV.SUPABASE_ANON_KEY.indexOf('PASTE') === -1) {
     try {
-      const mod = await import('./backend/colosso-api.js');
+      const mod = await import('./colosso-api.js');
       window.COLOSSO = mod.COLOSSO;
       const { data } = await window.COLOSSO.sb.auth.getSession();
       console.log('%c[COLOSSO] Supabase conectado ✓','color:#27d07a;font-weight:bold', data?.session ? '· sessão ativa' : '· anônimo');

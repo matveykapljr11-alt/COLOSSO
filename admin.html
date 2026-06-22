@@ -53,7 +53,7 @@
 </div>
 
 <script type="module">
-import { COLOSSO } from './backend/colosso-api.js';
+import { COLOSSO } from './colosso-api.js';
 const app = document.getElementById('app');
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const when = ts => { try{ return new Date(ts).toLocaleString('pt-BR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}); }catch(e){ return ''; } };
