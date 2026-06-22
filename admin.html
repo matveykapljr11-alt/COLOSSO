@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COLOSSO — Admin</title>
+<meta name="robots" content="noindex">
+<script>
+  window.COLOSSO_ENV = {
+    SUPABASE_URL: 'https://zzqlbnjxkuylydwduvzf.supabase.co',
+    SUPABASE_ANON_KEY: 'sb_publishable_g2kvRbbPcvBr-eUes8CSfg_YRilFgGr'
+  };
+</script>
+<style>
+  :root{ --bg:#0a0c12; --bg2:#11141d; --panel:#161b27; --panel2:#1d2433; --line:#262d3d;
+    --txt:#e8ecf5; --muted:#8a93a8; --dim:#5b6478; --acc:#ff5a2c; --acc2:#ffb020; --grn:#27d07a; --blu:#3da5ff; --pur:#9a6bff; --red:#ff6470; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);font-size:14px;line-height:1.5}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px}
+  .mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font-weight:900;color:#0a0c12}
+  .who{font-size:13px;color:var(--muted)}
+  .btn{background:linear-gradient(135deg,var(--acc),#ff7a3c);color:#fff;font-weight:700;padding:8px 14px;border:none;border-radius:9px;font-size:13px;cursor:pointer}
+  .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--txt)}
+  .btn.grn{background:linear-gradient(135deg,var(--grn),#1fae66)}
+  .btn.sm{padding:6px 11px;font-size:12px}
+  .tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .tab{background:var(--panel);border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:13px;padding:8px 15px;border-radius:9px;cursor:pointer}
+  .tab.on{background:var(--panel2);color:var(--txt);border-color:var(--acc)}
+  .tab .n{display:inline-block;min-width:18px;text-align:center;margin-left:6px;background:var(--acc);color:#fff;border-radius:20px;font-size:11px;padding:0 6px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:11px}
+  .card .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:7px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+  .pill.high{background:rgba(255,100,112,.14);color:#ff8a93;border:1px solid rgba(255,100,112,.3)}
+  .pill.medium{background:rgba(255,176,32,.13);color:#ffce6e;border:1px solid rgba(255,176,32,.3)}
+  .pill.low{background:rgba(61,165,255,.13);color:#7cc1ff;border:1px solid rgba(61,165,255,.3)}
+  .pill.t{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+  .meta{font-size:12px;color:var(--muted);margin-top:6px}
+  .reason{margin-top:8px;font-size:13px;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;white-space:pre-wrap;word-break:break-word}
+  .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .empty{text-align:center;color:var(--muted);padding:40px 20px}
+  .center{min-height:70vh;display:grid;place-items:center;text-align:center}
+  mark{background:none;color:var(--acc2);font-weight:700}
+  code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--blu)}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="center"><div><div class="mark" style="width:46px;height:46px;border-radius:13px;margin:0 auto 14px;font-size:20px">C</div>Carregando…</div></div>
+</div>
+
+<script type="module">
+import { COLOSSO } from './backend/colosso-api.js';
+const app = document.getElementById('app');
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const when = ts => { try{ return new Date(ts).toLocaleString('pt-BR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}); }catch(e){ return ''; } };
+const sev = s => `<span class="pill ${s||'low'}">${esc(s||'low')}</span>`;
+let me = null, counts = { reports:0, disputes:0, flags:0 };
+
+function screen(html){ app.innerHTML = `<div class="center"><div>${html}</div></div>`; }
+
+async function boot(){
+  const { data:{ user } } = await COLOSSO.sb.auth.getUser();
+  if(!user){
+    screen(`<div class="mark" style="width:46px;height:46px;border-radius:13px;margin:0 auto 14px;font-size:20px">C</div>
+      <h2 style="margin-bottom:8px">COLOSSO · Admin</h2>
+      <p style="color:var(--muted);margin-bottom:18px">Entre para acessar o painel de moderação.</p>
+      <button class="btn" id="login">Continuar com Discord</button>`);
+    document.getElementById('login').onclick = ()=> COLOSSO.auth.signInWithDiscord(location.href);
+    return;
+  }
+  const { data: prof } = await COLOSSO.sb.from('profiles').select('nick,is_admin').eq('id',user.id).single();
+  me = prof;
+  if(!prof || !prof.is_admin){
+    screen(`<h2 style="margin-bottom:8px">Acesso negado</h2>
+      <p style="color:var(--muted);margin-bottom:18px">Sua conta (${esc(prof?.nick||user.email||'—')}) não é administrador.</p>
+      <button class="btn ghost" id="out">Sair</button>`);
+    document.getElementById('out').onclick = async ()=>{ await COLOSSO.auth.signOut(); boot(); };
+    return;
+  }
+  render('reports');
+}
+
+let TAB='reports';
+function shell(body){
+  app.innerHTML = `
+    <header>
+      <div class="logo"><div class="mark">C</div> COLOSSO · <span style="color:var(--muted);font-weight:600">Admin</span></div>
+      <div class="row"><span class="who">${esc(me.nick||'admin')}</span><button class="btn ghost sm" id="out">Sair</button></div>
+    </header>
+    <div class="tabs">
+      <div class="tab ${TAB==='reports'?'on':''}" data-t="reports">Denúncias${counts.reports?`<span class="n">${counts.reports}</span>`:''}</div>
+      <div class="tab ${TAB==='disputes'?'on':''}" data-t="disputes">Disputas${counts.disputes?`<span class="n">${counts.disputes}</span>`:''}</div>
+      <div class="tab ${TAB==='flags'?'on':''}" data-t="flags">Anti-cheat${counts.flags?`<span class="n">${counts.flags}</span>`:''}</div>
+      <div style="margin-left:auto"><button class="btn ghost sm" id="reload">↻ Atualizar</button></div>
+    </div>
+    <div id="body">${body}</div>`;
+  document.getElementById('out').onclick = async ()=>{ await COLOSSO.auth.signOut(); boot(); };
+  document.getElementById('reload').onclick = ()=> render(TAB);
+  app.querySelectorAll('.tab').forEach(t=> t.onclick = ()=> render(t.dataset.t));
+}
+
+async function render(tab){
+  TAB = tab;
+  shell(`<div class="empty">Carregando…</div>`);
+  try{
+    if(tab==='reports') return renderReports();
+    if(tab==='disputes') return renderDisputes();
+    if(tab==='flags') return renderFlags();
+  }catch(e){ document.getElementById('body').innerHTML = `<div class="empty">Erro: ${esc(e.message)}</div>`; }
+}
+
+async function renderReports(){
+  const rows = await COLOSSO.admin.reports('open');
+  counts.reports = rows.length;
+  const body = rows.length ? rows.map(r=>`
+    <div class="card" data-id="${r.id}">
+      <div class="top">
+        <div class="row"><span class="pill t">${esc(r.target_type)}</span> <code>${esc(r.target_id)}</code></div>
+        <span class="meta">${when(r.created_at)}</span>
+      </div>
+      ${r.reason?`<div class="reason">${esc(r.reason)}</div>`:''}
+      <div class="acts">
+        <button class="btn grn sm" data-act="reviewed">✓ Revisado</button>
+        <button class="btn ghost sm" data-act="dismissed">Descartar</button>
+      </div>
+    </div>`).join('') : `<div class="empty">Sem denúncias abertas 🎉</div>`;
+  shell(body);
+  app.querySelectorAll('.card .btn[data-act]').forEach(b=> b.onclick = async ()=>{
+    const id = b.closest('.card').dataset.id;
+    await COLOSSO.sb.from('reports').update({ status: b.dataset.act }).eq('id', id);
+    render('reports');
+  });
+}
+
+async function renderDisputes(){
+  const rows = await COLOSSO.admin.disputes();
+  counts.disputes = rows.length;
+  const body = rows.length ? rows.map(d=>`
+    <div class="card" data-id="${d.lobby_id}">
+      <div class="top">
+        <div class="row"><span class="pill high">disputa</span> lobby <code>${esc(String(d.lobby_id).slice(0,8))}</code></div>
+        <span class="meta">${when(d.created_at)}</span>
+      </div>
+      <div class="meta">Lado A reivindica: <mark>${esc(d.reported_a||'?')}</mark> · Lado B reivindica: <mark>${esc(d.reported_b||'?')}</mark></div>
+      <div class="acts">
+        <button class="btn sm" data-win="A">Vitória do lado A</button>
+        <button class="btn sm" data-win="B">Vitória do lado B</button>
+      </div>
+    </div>`).join('') : `<div class="empty">Sem disputas abertas ✅</div>`;
+  shell(body);
+  app.querySelectorAll('.card .btn[data-win]').forEach(b=> b.onclick = async ()=>{
+    const lobby = b.closest('.card').dataset.id;
+    if(!confirm('Resolver a disputa a favor do lado '+b.dataset.win+'? Isso aplica o GLR e não pode ser desfeito.')) return;
+    try{ await COLOSSO.admin.resolveDispute(lobby, b.dataset.win); }catch(e){ alert('Erro: '+e.message); }
+    render('disputes');
+  });
+}
+
+async function renderFlags(){
+  const rows = await COLOSSO.admin.flags(null);
+  counts.flags = rows.length;
+  const label = { repeat_pair:'Par repetido', one_way_flow:'Fluxo unidirecional', fresh_accounts:'Contas novas', night_burst:'Pico noturno' };
+  const body = rows.length ? rows.map(f=>`
+    <div class="card">
+      <div class="top">
+        <div class="row">${sev(f.severity)} <b>${esc(label[f.signal]||f.signal)}</b></div>
+        <span class="meta">${when(f.created_at)}</span>
+      </div>
+      ${f.detail?`<div class="meta">${esc(f.detail)}</div>`:''}
+      <div class="reason"><code>${esc(JSON.stringify(f.subject))}</code></div>
+    </div>`).join('') : `<div class="empty">Nenhum sinal de anti-trapaça 🛡️</div>`;
+  shell(body);
+}
+
+let _booted=false;
+COLOSSO.sb.auth.onAuthStateChange(()=>{ boot(); });
+boot();
+</script>
+</body>
+</html>
