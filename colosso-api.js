@@ -423,5 +423,17 @@ export const translate = {
   }
 };
 
-export const COLOSSO = { sb, auth, profiles, players, leaderboard, teams, scrims, lobbies, tournaments, spaces, chat, notifications, matchmaking, translate, matches, admin, reports, betaApplications };
+// ============================================================================
+// ANALYTICS sink (events land server-side; localStorage copy stays on client)
+// ============================================================================
+export const analytics = {
+  async track(ev) {
+    const u = await auth.getUser().catch(() => null);
+    return sb.from('analytics_events').insert({
+      event_name: ev.event_name || ev.name, metadata: ev.metadata || {}, profile_id: u ? u.id : null
+    }).then(() => {});
+  }
+};
+
+export const COLOSSO = { sb, auth, profiles, players, leaderboard, teams, scrims, lobbies, tournaments, spaces, chat, notifications, matchmaking, translate, matches, admin, reports, betaApplications, analytics };
 export default COLOSSO;
