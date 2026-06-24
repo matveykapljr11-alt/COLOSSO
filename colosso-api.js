@@ -135,7 +135,10 @@ export const teams = {
       data: { team: team_name, status }
     });
     return status;
-  }
+  },
+  // FOUNDER invite loop — owner generates a code, others join directly by code
+  createInvite(team_id) { return sb.rpc('create_team_invite', { p_team: team_id }).then(ok); },
+  joinByInvite(code) { return sb.rpc('join_team_by_invite', { p_code: code }).then(ok); }
 };
 
 // ============================================================================
@@ -176,6 +179,32 @@ export const scrims = {
       scrim_id, password: 'CLS-' + Math.floor(1000 + Math.random() * 9000)
     }).select().single());
     return lobby;
+  },
+  // ---- ALWAYS-ON SCRIM BOARD (publish a slot, other teams challenge it) ----
+  async createPost({ team_id, game = 'free_fire', server_region, rank_band, format, slot_start, slot_end, note }) {
+    const u = await auth.getUser(); if (!u) throw new Error('not authed');
+    const slot = `[${new Date(slot_start).toISOString()},${new Date(slot_end).toISOString()})`;
+    return ok(await sb.from('scrim_posts').insert({
+      team_id, creator_id: u.id, game, server_region, rank_band, format, slot, note
+    }).select('*, teams(name,crest_color,glr,founder)').single());
+  },
+  listPosts({ game, rank_band } = {}) {
+    let q = sb.from('scrim_posts').select('*, teams(name,crest_color,glr,founder)').eq('status', 'open');
+    if (game) q = q.eq('game', game);
+    if (rank_band) q = q.eq('rank_band', rank_band);
+    return q.order('created_at', { ascending: false }).limit(60).then(ok);
+  },
+  async challenge(scrim_post_id, { challenger_team_id, message = '' }) {
+    const u = await auth.getUser(); if (!u) throw new Error('not authed');
+    return ok(await sb.from('scrim_challenges').insert({
+      scrim_post_id, challenger_team_id, challenger_id: u.id, message
+    }).select().single());
+  },
+  acceptChallenge(challenge_id) { return sb.rpc('accept_scrim_challenge', { p_challenge: challenge_id }).then(ok); },
+  // challenges received on my team's posts (post owner reads via RLS)
+  challengesForPost(scrim_post_id) {
+    return sb.from('scrim_challenges').select('*, teams:challenger_team_id(name,crest_color,glr)')
+      .eq('scrim_post_id', scrim_post_id).eq('state', 'pending').then(ok);
   }
 };
 
@@ -260,7 +289,10 @@ export const admin = {
   // admin only: triage anti-cheat flags (returns nothing for non-admins)
   flags(signal = null) { return sb.rpc('list_flags', { p_signal: signal }).then(ok); },
   // admin only: triage user/content reports
-  reports(status = 'open') { return sb.rpc('list_reports', { p_status: status }).then(ok); }
+  reports(status = 'open') { return sb.rpc('list_reports', { p_status: status }).then(ok); },
+  // admin only: triage closed-beta applications
+  betaApplications(status = 'pending') { return sb.rpc('list_beta_applications', { p_status: status }).then(ok); },
+  setBetaStatus(id, status) { return sb.from('beta_applications').update({ status }).eq('id', id).then(ok); }
 };
 
 // ============================================================================
@@ -273,6 +305,17 @@ export const reports = {
       reporter_id: u.id, target_type, target_id: String(target_id), reason
     }).select().single());
   }
+};
+
+// ============================================================================
+// CLOSED-BETA applications ("The First 16") — open to guests
+// ============================================================================
+export const betaApplications = {
+  async create(payload) {
+    const u = await auth.getUser().catch(() => null);
+    return ok(await sb.from('beta_applications').insert({ ...payload, profile_id: u ? u.id : null }).select().single());
+  },
+  stats() { return sb.rpc('beta_stats').then(ok); }
 };
 
 // ============================================================================
@@ -377,5 +420,5 @@ export const translate = {
   }
 };
 
-export const COLOSSO = { sb, auth, profiles, players, leaderboard, teams, scrims, lobbies, tournaments, spaces, chat, notifications, matchmaking, translate, matches, admin, reports };
+export const COLOSSO = { sb, auth, profiles, players, leaderboard, teams, scrims, lobbies, tournaments, spaces, chat, notifications, matchmaking, translate, matches, admin, reports, betaApplications };
 export default COLOSSO;
