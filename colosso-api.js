@@ -201,10 +201,13 @@ export const scrims = {
     }).select().single());
   },
   acceptChallenge(challenge_id) { return sb.rpc('accept_scrim_challenge', { p_challenge: challenge_id }).then(ok); },
-  // challenges received on my team's posts (post owner reads via RLS)
-  challengesForPost(scrim_post_id) {
-    return sb.from('scrim_challenges').select('*, teams:challenger_team_id(name,crest_color,glr)')
-      .eq('scrim_post_id', scrim_post_id).eq('state', 'pending').then(ok);
+  declineChallenge(challenge_id) { return sb.from('scrim_challenges').update({ state: 'declined' }).eq('id', challenge_id).then(ok); },
+  // all pending challenges received on my team's open posts
+  incomingChallenges(team_id) {
+    return sb.from('scrim_challenges')
+      .select('*, scrim_posts!inner(team_id,slot,rank_band,format), teams:challenger_team_id(name,crest_color,glr,founder)')
+      .eq('state', 'pending').eq('scrim_posts.team_id', team_id)
+      .order('created_at', { ascending: false }).then(ok);
   }
 };
 
