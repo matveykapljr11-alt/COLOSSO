@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#08090f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='6' y1='4' x2='42' y2='44' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8a2c'/%3E%3Cstop offset='.5' stop-color='%23ff2d9b'/%3E%3Cstop offset='1' stop-color='%23a64bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='3' y='3' width='42' height='42' rx='13' fill='url(%23g)'/%3E%3Cpath d='M9 35 L9 13.5 Q18.5 9.3 28 13.5 L28 20 Q32.5 17.8 37 20.5 L37 35 Z' fill='%230a0c12'/%3E%3Cg fill='url(%23g)'%3E%3Cpath d='M10.8 32.4 L10.8 29.4 A2 2 0 0 1 14.8 29.4 L14.8 32.4 Z'/%3E%3Cpath d='M10.8 24.8 L10.8 22.2 A2 2 0 0 1 14.8 22.2 L14.8 24.8 Z'/%3E%3Cpath d='M16 32.4 L16 29.4 A2 2 0 0 1 20 29.4 L20 32.4 Z'/%3E%3Cpath d='M16 24.8 L16 22.2 A2 2 0 0 1 20 22.2 L20 24.8 Z'/%3E%3Cpath d='M21.2 32.4 L21.2 29.4 A2 2 0 0 1 25.2 29.4 L25.2 32.4 Z'/%3E%3Cpath d='M21.2 24.8 L21.2 22.2 A2 2 0 0 1 25.2 22.2 L25.2 24.8 Z'/%3E%3Cpath d='M29.9 32.4 L29.9 30.25 A1.25 1.25 0 0 1 32.4 30.25 L32.4 32.4 Z'/%3E%3Cpath d='M33.2 32.4 L33.2 30.25 A1.25 1.25 0 0 1 35.7 30.25 L35.7 32.4 Z'/%3E%3C/g%3E%3Crect x='8' y='34.3' width='31' height='2.3' rx='1.15' fill='%230a0c12'/%3E%3C/svg%3E">
-<meta name="description" content="COLOSSO — tudo-em-um para o esports mobile da América Latina: scrims, jogadores, times e torneios com ranking GLR, reputação e denúncias. Beta privada.">
+<meta name="description" content="COLOS — tudo-em-um para o esports mobile da América Latina: scrims, jogadores, times e torneios com ranking GLR, reputação e denúncias. Beta privada.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="COLOSSO — Entre na arena">
+<meta property="og:title" content="COLOS — Entre na arena">
 <meta property="og:description" content="Tudo-em-um para o esports mobile da América Latina: scrims, jogadores, times e torneios com ranking justo, reputação e denúncias. Beta privada.">
 <meta property="og:image" content="./og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="COLOSSO">
-<title>COLOSSO — Entre na arena · Free Fire, MLBB, scrims, times e torneios</title>
+<meta name="apple-mobile-web-app-title" content="COLOS">
+<title>COLOS — Entre na arena · Free Fire, MLBB, scrims, times e torneios</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
@@ -261,6 +261,11 @@
   #authOnboard .frow input,#authOnboard .frow select{width:100%}
   #authOnboard .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0}
   #authOnboard .two .frow{margin-bottom:14px}
+  #beta .frow{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  #beta .frow label{font-size:12px;font-weight:700;color:var(--muted)}
+  #beta .frow input,#beta .frow select,#beta .frow textarea{width:100%}
+  #beta .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){#beta .two{grid-template-columns:1fr}}
   @media(max-width:430px){#authOnboard .two{grid-template-columns:1fr;gap:0}}
   .modal .foot{display:flex;gap:10px;margin-top:8px}
   .modal .foot .btn{flex:1;text-align:center}
@@ -430,6 +435,7 @@
     font-size:13px;font-weight:600;padding:9px 10px;border-radius:8px;cursor:pointer;text-align:left}
   .lang-menu button:hover{background:var(--panel2)}
   .lang-menu .s3{margin-left:auto;font-size:10px;color:var(--dim);font-weight:700}
+  .lang-menu .lang-soon{opacity:.45;cursor:not-allowed}
   /* ---------- live tournament accents ---------- */
   .trn.live-trn{border-color:rgba(39,208,122,.5);
     background:linear-gradient(110deg,rgba(39,208,122,.10),var(--panel) 55%);
@@ -1264,7 +1270,7 @@
 </head>
 <body>
 
-<!-- COLOSSO logo mark (defined once, reused) -->
+<!-- COLOS logo mark (defined once, reused) -->
 <svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
   <defs>
     <linearGradient id="cgrad" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
@@ -1323,7 +1329,7 @@
     <!-- login -->
     <div id="authLogin">
       <button onclick="closeGate()" aria-label="close" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-size:24px;line-height:1;cursor:pointer">×</button>
-      <div class="auth-logo"><div class="mark" style="width:46px;height:46px;border-radius:13px"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span style="font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:24px;letter-spacing:1px">COLOSSO</span></div>
+      <div class="auth-logo"><div class="mark" style="width:46px;height:46px;border-radius:13px"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span style="font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:24px;letter-spacing:1px">COLOS</span></div>
       <h1 class="auth-h1" data-i18n="auth.h1">Entre na arena</h1>
       <p class="auth-p" data-i18n="auth.p">Crie sua conta em segundos e comece a jogar scrims, achar time e disputar torneios.</p>
       <button class="dc-btn" onclick="discordLogin()"><svg class="ico" style="width:22px;height:22px;fill:#fff;stroke:none"><use href="#i-discord"/></svg> <span data-i18n="auth.discord">Continuar com Discord</span></button>
@@ -1349,17 +1355,17 @@
         <div class="frow"><label data-i18n="auth.region">Região</label><select id="ob_reg"><option>BR-SP</option><option>BR</option><option>AR</option><option>MX</option><option>CL</option><option>CO</option></select></div>
       </div>
       <div class="frow"><label data-i18n="auth.role">Função</label><select id="ob_role"><option>Rusher</option><option>Suporte</option><option>Sniper</option><option>IGL</option><option>Flex</option></select></div>
-      <button class="btn" style="width:100%;margin-top:6px;justify-content:center" onclick="finishOnboard()"><span data-i18n="auth.start">Entrar na COLOSSO</span></button>
+      <button class="btn" style="width:100%;margin-top:6px;justify-content:center" onclick="finishOnboard()"><span data-i18n="auth.start">Entrar na COLOS</span></button>
     </div>
   </div>
 </div>
 
 <nav class="nav">
   <button class="hamb" id="hambBtn" onclick="toggleMenu(event)" aria-label="menu" aria-haspopup="true" aria-expanded="false"><svg class="ico"><use href="#i-menu"/></svg></button>
-  <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOSSO</span></div>
+  <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOS</span></div>
   <div class="links">
     <button data-go="home" class="on" data-i18n="nav.home">Início</button>
-    <button data-go="events" data-i18n="nav.events">Eventos</button>
+    <button data-go="events" data-i18n="nav.events">Arena</button>
     <button data-go="scrims" data-i18n="nav.scrims">Praccs</button>
     <button data-go="lfg" data-i18n="nav.lfg">Jogadores</button>
     <button data-go="teams" data-i18n="nav.teams">Times</button>
@@ -1382,9 +1388,9 @@
       <button onclick="toggleLang(event)" aria-label="language" aria-haspopup="true" aria-expanded="false"><svg class="ico" style="width:15px;height:15px"><use href="#i-globe"/></svg> <span id="langCur">PT</span> ▾</button>
       <div class="lang-menu" id="langMenu">
         <button data-l="PT" aria-current="true" onclick="setLang('PT')">🇧🇷 Português <span class="s3">agora</span></button>
-        <button data-l="ES" onclick="setLang('ES')">🇪🇸 Español <span class="s3">agora</span></button>
-        <button data-l="EN" onclick="setLang('EN')">🇬🇧 English <span class="s3">Q3</span></button>
-        <button data-l="RU" onclick="setLang('RU')">🇷🇺 Русский <span class="s3">beta</span></button>
+        <button data-l="RU" onclick="setLang('RU')">🇷🇺 Русский <span class="s3">dev</span></button>
+        <button class="lang-soon" onclick="langSoon()">🇪🇸 Español <span class="s3">em breve</span></button>
+        <button class="lang-soon" onclick="langSoon()">🇬🇧 English <span class="s3">soon</span></button>
       </div>
     </div>
     <button class="btn ghost sm" id="discordBtn" data-i18n="nav.connect">⬡ Conectar</button>
@@ -1396,7 +1402,7 @@
 <div class="mmenu-bg" id="mmenuBg" onclick="closeMenu()"></div>
 <aside class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="mm-head">
-    <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOSSO</span></div>
+    <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOS</span></div>
     <button class="mm-x" onclick="closeMenu()" aria-label="close">×</button>
   </div>
   <div class="mm-prof" onclick="navTo('profile')">
@@ -1410,7 +1416,7 @@
 
   <div class="mm-lbl" data-i18n="mm.nav">Navegação</div>
   <button class="mm" data-v="home" onclick="navTo('home')"><span class="mi2"><svg class="ico"><use href="#i-home"/></svg></span> <span data-i18n="nav.home">Início</span></button>
-  <button class="mm" data-v="events" onclick="navTo('events')"><span class="mi2"><svg class="ico"><use href="#i-trophy"/></svg></span> <span data-i18n="nav.events">Eventos</span></button>
+  <button class="mm" data-v="events" onclick="navTo('events')"><span class="mi2"><svg class="ico"><use href="#i-trophy"/></svg></span> <span data-i18n="nav.events">Arena</span></button>
   <button class="mm" data-v="scrims" onclick="navTo('scrims')"><span class="mi2"><svg class="ico"><use href="#i-sword"/></svg></span> <span data-i18n="nav.scrims">Praccs</span></button>
   <button class="mm" data-v="lfg" onclick="navTo('lfg')"><span class="mi2"><svg class="ico"><use href="#i-users"/></svg></span> <span data-i18n="nav.lfg">Jogadores</span></button>
   <button class="mm" data-v="teams" onclick="navTo('teams')"><span class="mi2"><svg class="ico"><use href="#i-shield"/></svg></span> <span data-i18n="nav.teams">Times</span></button>
@@ -1435,7 +1441,7 @@
   </div>
 
   <div class="mm-foot">
-    <button class="btn" style="width:100%" onclick="closeMenu();toast(t('toast.premium'))">✦ COLOSSO Premium</button>
+    <button class="btn flag-premium" style="width:100%" onclick="closeMenu();toast(t('toast.premium'))">✦ COLOS Premium</button>
     <button class="mm" style="justify-content:center;color:var(--muted);font-size:12.5px;margin-top:6px" onclick="resetDemo()">↺ <span data-i18n="mm.reset">Resetar demo</span></button>
     <div style="text-align:center;color:var(--dim);font-size:11px;margin-top:6px;font-family:var(--mono)">v0.7 · LATAM</div>
   </div>
@@ -1476,12 +1482,11 @@
     <div class="wrap">
       <div class="badge"><span class="dot"></span> <span data-i18n="hero.online">Online agora:</span> <b style="color:var(--txt);margin-left:3px">9 842</b></div>
       <div style="font-size:14px;font-weight:800;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:12px" data-i18n="hero.eyebrow">Entre na arena · Free Fire &amp; MLBB</div>
-      <h1 class="big" data-i18n-html="hero.h1">Tudo-em-um para o <em>esports mobile</em> da América Latina</h1>
-      <p class="sub" data-i18n="hero.sub">COLOSSO conecta jogadores, times e organizadores: scrims, busca de duplas/squads e torneios com ranking justo, reputação e sistema de denúncias. Servidores em São Paulo e Buenos Aires. Comece em Free Fire e MLBB.</p>
+      <h1 class="big" data-i18n-html="hero.h1">A arena competitiva para times de <em>Free Fire</em> no Brasil</h1>
+      <p class="sub" data-i18n="hero.sub">Monte seu time, encontre scrims e entre na primeira beta fechada da COLOS. Os 16 primeiros times recebem status Founder. Ranking GLR, reputação e resultados verificados.</p>
       <div class="cta-row">
-        <button class="btn big" data-go="lfg"><svg class="ico"><use href="#i-users"/></svg> <span data-i18n="cta.findTeam">Achar time</span></button>
-        <button class="btn big ghost" data-go="events"><svg class="ico"><use href="#i-sword"/></svg> <span data-i18n="cta.playScrim">Entrar na Scrim Night</span></button>
-        <button class="btn big ghost" data-go="tournaments"><svg class="ico"><use href="#i-trophy"/></svg> <span data-i18n="cta.createTrn">Criar torneio</span></button>
+        <button class="btn big" data-go="beta"><svg class="ico"><use href="#i-shieldcheck"/></svg> <span data-i18n="cta.beta">Pedir acesso à beta</span></button>
+        <button class="btn big ghost" data-go="events"><svg class="ico"><use href="#i-trophy"/></svg> <span data-i18n="cta.first16">Ver The First 16</span></button>
       </div>
       <div class="stats">
         <div class="stat"><div class="num">Beta</div><div class="lbl">privada · primeiras ligas em breve</div></div>
@@ -1498,7 +1503,7 @@
   <div class="wrap">
     <div class="section">
       <h2 data-i18n="home.featTitle">Tudo para a competitiva — num só lugar</h2>
-      <p class="lead" data-i18n="home.featLead">O mercado é fragmentado: uns serviços só para torneios, outros só para achar dupla. A COLOSSO une as três funções principais num ecossistema mobile.</p>
+      <p class="lead" data-i18n="home.featLead">O mercado é fragmentado: uns serviços só para torneios, outros só para achar dupla. A COLOS une as três funções principais num ecossistema mobile.</p>
       <div class="feat-grid">
         <div class="feat" data-go="scrims">
           <div class="ic" style="background:rgba(255,90,44,.13);color:var(--acc)"><svg class="ico"><use href="#i-sword"/></svg></div>
@@ -1566,10 +1571,10 @@
         <div class="mini"><span class="k" data-i18n="hub.team">Time</span><span class="v">LOUD Academy</span></div>
         <div class="mini"><span class="k" data-i18n="hub.rank">Rank</span><span class="v" style="color:#bda0ff">Mítico</span></div>
         <div class="mini"><span class="k" data-i18n="hub.rep">Reputação</span><span class="v" style="color:var(--acc2)">4.8 ★</span></div>
-        <div class="mini"><span class="k" data-i18n="hub.wallet">Carteira</span><span class="v">R$ 120,00</span></div>
+        <div class="mini flag-wallet"><span class="k" data-i18n="hub.wallet">Carteira</span><span class="v">R$ 120,00</span></div>
       </div>
-      <div class="card" style="background:linear-gradient(135deg,rgba(255,90,44,.12),rgba(255,176,32,.06));border-color:rgba(255,90,44,.3)">
-        <div style="font-weight:800;font-size:14px;margin-bottom:5px">COLOSSO Premium</div>
+      <div class="card flag-premium" style="background:linear-gradient(135deg,rgba(255,90,44,.12),rgba(255,176,32,.06));border-color:rgba(255,90,44,.3)">
+        <div style="font-weight:800;font-size:14px;margin-bottom:5px">COLOS Premium</div>
         <div style="color:var(--muted);font-size:12.5px;line-height:1.5;margin-bottom:12px" data-i18n="hub.premium">Prioridade na fila, reputação e análise de partidas.</div>
         <button class="btn sm" style="width:100%" onclick="toast(t('toast.premium'))" data-i18n="hub.connect">Assinar</button>
       </div>
@@ -1597,12 +1602,30 @@
         <div id="eventsList"></div>
       </section>
 
+      <section class="view" id="beta">
+        <div class="phead">
+          <div><h2><svg class="ico"><use href="#i-shieldcheck"/></svg> Pedir acesso à beta</h2><p>Estamos selecionando os primeiros <b>16 times de Free Fire no Brasil</b>. Os primeiros recebem status Founder. Conta rápido sobre seu time.</p></div>
+        </div>
+        <div class="card" style="max-width:640px">
+          <div class="frow"><label>Nick</label><input id="ba_nick" type="text" placeholder="Seu nick in-game"></div>
+          <div class="two">
+            <div class="frow"><label>Você é capitão?</label><select id="ba_captain"><option value="yes">Sim, sou capitão</option><option value="no">Não, sou jogador</option></select></div>
+            <div class="frow"><label>Jogo</label><select id="ba_game"><option value="free_fire">Free Fire</option><option value="mlbb">MLBB</option></select></div>
+          </div>
+          <div class="frow"><label>Nome do time</label><input id="ba_team" type="text" placeholder="Nome do seu time"></div>
+          <div class="frow"><label>Contato (Discord ou WhatsApp)</label><input id="ba_contact" type="text" placeholder="@seu_discord ou +55 11 9..."></div>
+          <div class="frow"><label>Por que seu time deve entrar?</label><textarea id="ba_reason" rows="3" placeholder="Fala rápido: região, horários de treino, conquistas…"></textarea></div>
+          <button class="btn" style="width:100%;justify-content:center;margin-top:4px" onclick="submitBetaApplication()">Enviar inscrição</button>
+          <p style="color:var(--dim);font-size:12px;margin-top:10px;text-align:center">Se for selecionado, você recebe o convite no contato informado.</p>
+        </div>
+      </section>
+
       <section class="view" id="scrims">
         <div class="phead">
           <div><h2><svg class="ico"><use href="#i-sword"/></svg> <span data-i18n="p.scrim.t">Praccs & Scrims</span></h2><p data-i18n="p.scrim.s">Pedidos abertos de treino. Ache adversário por servidor, rank e horário (no seu fuso).</p></div>
           <div id="scrimActions" style="display:flex;gap:9px;flex-wrap:wrap">
             <button class="btn ghost" onclick="startQuickMatch()"><svg class="ico"><use href="#i-spark"/></svg> <span data-i18n="qm.btn">Partida rápida</span></button>
-            <button class="btn" onclick="openModal('scrim')" data-i18n="btn.newScrim">+ Criar pracc</button>
+            <button class="btn" onclick="openScrimPost()" data-i18n="btn.newScrim">+ Publicar scrim</button>
           </div>
         </div>
         <div class="srv-strip" id="srvStrip"></div>
@@ -1840,7 +1863,7 @@
 <footer class="footer">
   <div class="fwrap">
     <div class="fcol brand-col">
-      <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOSSO</span></div>
+      <div class="logo"><div class="mark"><svg class="lmark" viewBox="0 0 48 48"><use href="#colossoMark"/></svg></div><span>COLOS</span></div>
       <p data-i18n="ft.brand">Tudo-em-um para o esports mobile da LATAM: scrims, times e torneios com ranking justo.</p>
       <div class="socials">
         <button title="Discord" onclick="openModal('connect')">⬡</button>
@@ -1859,9 +1882,9 @@
     </div>
     <div class="fcol">
       <div class="ft" data-i18n="ft.community">Comunidade</div>
-      <a onclick="go('organizer')"><svg class="ico"><use href="#i-arena"/></svg> <span data-i18n="nav.org2">Organizadores</span></a>
+      <a class="flag-organizer" onclick="go('organizer')"><svg class="ico"><use href="#i-arena"/></svg> <span data-i18n="nav.org2">Organizadores</span></a>
       <div class="li" onclick="openModal('feedback')"><svg class="ico"><use href="#i-chat"/></svg> <span data-i18n="ft.feedback">Deixar feedback</span></div>
-      <div class="li" onclick="toast(t('toast.premium'))"><svg class="ico"><use href="#i-spark"/></svg> Premium</div>
+      <div class="li flag-premium" onclick="toast(t('toast.premium'))"><svg class="ico"><use href="#i-spark"/></svg> Premium</div>
       <div class="li" onclick="go('how')"><svg class="ico"><use href="#i-shieldcheck"/></svg> <span data-i18n="ft.ac">Reputação e denúncias</span></div>
       <div class="li" onclick="openModal('connect')"><svg class="ico"><use href="#i-link"/></svg> <span data-i18n="ft.integr">Integrações</span></div>
     </div>
@@ -1881,7 +1904,7 @@
       <div class="li" style="margin-top:4px" onclick="toast(t('toast.pwa'))">📲 <span data-i18n="app.pwa">Instalar como PWA</span></div>
     </div>
   </div>
-  <div class="fbottom">COLOSSO · Entre na arena · LATAM · <span data-i18n="ft.demo">protótipo demo v0.6</span> · <a onclick="openLegal()" style="cursor:pointer;text-decoration:underline" data-i18n="ft.legal">Termos e Privacidade</a></div>
+  <div class="fbottom">COLOS · Entre na arena · LATAM · <span data-i18n="ft.demo">protótipo demo v0.6</span> · <a onclick="openLegal()" style="cursor:pointer;text-decoration:underline" data-i18n="ft.legal">Termos e Privacidade</a></div>
 </footer>
 
 <!-- QUICK MATCH OVERLAY -->
@@ -1932,12 +1955,12 @@ function resetDemo(){
 const I18N={
  PT:{}, // PT is the base (data-i18n default text); keys below override only where needed
  ES:{
-  'nav.home':'Inicio','nav.events':'Eventos','nav.scrims':'Scrims','nav.lfg':'Equipos','nav.trn':'Torneos','nav.rank':'Ranking','nav.profile':'Perfil','nav.org':'⬡ Organizadores','nav.connect':'⬡ Conectar','nav.org2':'Organizadores',
+  'nav.home':'Inicio','nav.events':'Arena','nav.scrims':'Scrims','nav.lfg':'Equipos','nav.trn':'Torneos','nav.rank':'Ranking','nav.profile':'Perfil','nav.org':'⬡ Organizadores','nav.connect':'⬡ Conectar','nav.org2':'Organizadores',
   'hero.online':'En línea ahora:','hero.eyebrow':'Entra a la arena · Free Fire y MLBB','hero.h1':'Todo-en-uno para el <em>esports móvil</em> de Latinoamérica',
-  'hero.sub':'COLOSSO conecta jugadores, equipos y organizadores: scrims, búsqueda de dúos/squads y torneos con ranking justo, reputación y sistema de denuncias. Servidores en São Paulo y Buenos Aires. Empieza en Free Fire y MLBB.',
-  'cta.findTeam':'🔍 Buscar equipo','cta.playScrim':'⚔️ Jugar scrim','cta.createTrn':'🏆 Crear torneo',
+  'hero.sub':'COLOS conecta jugadores, equipos y organizadores: scrims, búsqueda de dúos/squads y torneos con ranking justo, reputación y sistema de denuncias. Servidores en São Paulo y Buenos Aires. Empieza en Free Fire y MLBB.',
+  'cta.findTeam':'🔍 Buscar equipo','cta.playScrim':'⚔️ Jugar scrim','cta.createTrn':'🏆 Crear torneo','cta.beta':'Pedir acceso a la beta','cta.first16':'Ver The First 16',
   'stat.players':'jugadores y equipos','stat.scrims':'scrims jugados','stat.trn':'torneos realizados','stat.prize':'en premios pagados','partners.label':'Ecosistema inspirado por:','partners.x1':'Comunidades LATAM','partners.x2':'Organizadores independientes',
-  'home.featTitle':'Todo para la competitiva — en un solo lugar','home.featLead':'El mercado está fragmentado: unos servicios solo para torneos, otros solo para buscar dúo. COLOSSO une las tres funciones en un ecosistema móvil.',
+  'home.featTitle':'Todo para la competitiva — en un solo lugar','home.featLead':'El mercado está fragmentado: unos servicios solo para torneos, otros solo para buscar dúo. COLOS une las tres funciones en un ecosistema móvil.',
   'feat.scrim.t':'Búsqueda de scrims','feat.scrim.p':'Publica un scrim o encuentra rival en un clic. Filtros por servidor, región, rango y horario. Confirmas → chat automático y datos de sala.','feat.scrim.go':'Abrir búsqueda →',
   'feat.lfg.t':'Búsqueda de equipo (LFG)','feat.lfg.p':'Perfiles detallados: rol, rango, estadísticas y estilo. Filtra por K/D y win-rate. La reputación combate la toxicidad.','feat.lfg.go':'Buscar jugadores →',
   'feat.trn.t':'Torneos y llaves','feat.trn.p':'Eliminación simple/doble, todos contra todos, suizo. Inscripción automática, sala, contraseña del servidor y premios vía billetera.','feat.trn.go':'Ver torneos →',
@@ -1961,12 +1984,12 @@ const I18N={
   'ft.brand':'Todo-en-uno para el esports móvil de LATAM: scrims, equipos y torneos con ranking justo.','ft.platform':'Plataforma','ft.lfg':'Búsqueda de equipo','ft.how':'Cómo funciona','ft.community':'Comunidad','ft.feedback':'Dejar feedback','ft.ac':'Reputación y denuncias','ft.integr':'Integraciones','ft.soon':'Próximamente juegos','ft.demo':'prototipo demo v0.6','fab':'Feedback','ft.app':'App móvil','app.get':'Descargar para','app.soon':'Pronto','app.pwa':'Instalar como PWA'
  },
  EN:{
-  'nav.home':'Home','nav.events':'Events','nav.scrims':'Scrims','nav.lfg':'Teams','nav.trn':'Tournaments','nav.rank':'Ranking','nav.profile':'Profile','nav.org':'⬡ Organizers','nav.connect':'⬡ Connect','nav.org2':'Organizers',
+  'nav.home':'Home','nav.events':'Arena','nav.scrims':'Scrims','nav.lfg':'Teams','nav.trn':'Tournaments','nav.rank':'Ranking','nav.profile':'Profile','nav.org':'⬡ Organizers','nav.connect':'⬡ Connect','nav.org2':'Organizers',
   'hero.online':'Online now:','hero.eyebrow':'Enter the arena · Free Fire & MLBB','hero.h1':'All-in-one for <em>mobile esports</em> in Latin America',
-  'hero.sub':'COLOSSO connects players, teams and organizers: scrims, duo/squad finder and tournaments with fair ranking, reputation and a reporting system. Servers in São Paulo and Buenos Aires. Start with Free Fire and MLBB.',
-  'cta.findTeam':'🔍 Find team','cta.playScrim':'⚔️ Play scrim','cta.createTrn':'🏆 Create tournament',
+  'hero.sub':'COLOS connects players, teams and organizers: scrims, duo/squad finder and tournaments with fair ranking, reputation and a reporting system. Servers in São Paulo and Buenos Aires. Start with Free Fire and MLBB.',
+  'cta.findTeam':'🔍 Find team','cta.playScrim':'⚔️ Play scrim','cta.createTrn':'🏆 Create tournament','cta.beta':'Request beta access','cta.first16':'See The First 16',
   'stat.players':'players and teams','stat.scrims':'scrims played','stat.trn':'tournaments run','stat.prize':'in prizes paid','partners.label':'Inspired by the ecosystem:','partners.x1':'LATAM communities','partners.x2':'Independent organizers',
-  'home.featTitle':'Everything competitive — in one place','home.featLead':'The market is fragmented: some services only for tournaments, others only for finding a duo. COLOSSO unites all three in one mobile ecosystem.',
+  'home.featTitle':'Everything competitive — in one place','home.featLead':'The market is fragmented: some services only for tournaments, others only for finding a duo. COLOS unites all three in one mobile ecosystem.',
   'feat.scrim.t':'Scrim finder','feat.scrim.p':'Post a scrim or find an opponent in one click. Filters by server, region, rank and time. Confirm → auto chat and room data.','feat.scrim.go':'Open finder →',
   'feat.lfg.t':'Team finder (LFG)','feat.lfg.p':'Detailed profiles: role, rank, stats and style. Filter by K/D and win-rate. Reputation fights toxicity.','feat.lfg.go':'Find players →',
   'feat.trn.t':'Tournaments & brackets','feat.trn.p':'Single/double elimination, round robin, Swiss. Auto registration, room, server password and wallet payouts.','feat.trn.go':'See tournaments →',
@@ -1990,12 +2013,12 @@ const I18N={
   'ft.brand':'All-in-one for LATAM mobile esports: scrims, teams and tournaments with fair ranking.','ft.platform':'Platform','ft.lfg':'Team finder','ft.how':'How it works','ft.community':'Community','ft.feedback':'Give feedback','ft.ac':'Reputation & reports','ft.integr':'Integrations','ft.soon':'Coming soon games','ft.demo':'demo prototype v0.6','fab':'Feedback','ft.app':'Mobile app','app.get':'Download for','app.soon':'Soon','app.pwa':'Install as PWA'
  },
  RU:{
-  'nav.home':'Главная','nav.events':'События','nav.scrims':'Скримы','nav.lfg':'Команды','nav.trn':'Турниры','nav.rank':'Рейтинг','nav.profile':'Профиль','nav.org':'⬡ Организаторам','nav.connect':'⬡ Подключить','nav.org2':'Организаторам',
+  'nav.home':'Главная','nav.events':'Арена','nav.scrims':'Скримы','nav.lfg':'Команды','nav.trn':'Турниры','nav.rank':'Рейтинг','nav.profile':'Профиль','nav.org':'⬡ Организаторам','nav.connect':'⬡ Подключить','nav.org2':'Организаторам',
   'hero.online':'Сейчас онлайн:','hero.eyebrow':'Выйди на арену · Free Fire и MLBB','hero.h1':'Всё-в-одном для <em>мобильного киберспорта</em> Латинской Америки',
-  'hero.sub':'COLOSSO объединяет игроков, команды и организаторов: скримы, поиск дуо/сквадов и турниры с честным рейтингом, репутацией и системой жалоб. Серверы в Сан-Паулу и Буэнос-Айресе. Старт — Free Fire и MLBB.',
-  'cta.findTeam':'🔍 Найти команду','cta.playScrim':'⚔️ Сыграть скрим','cta.createTrn':'🏆 Создать турнир',
+  'hero.sub':'COLOS объединяет игроков, команды и организаторов: скримы, поиск дуо/сквадов и турниры с честным рейтингом, репутацией и системой жалоб. Серверы в Сан-Паулу и Буэнос-Айресе. Старт — Free Fire и MLBB.',
+  'cta.findTeam':'🔍 Найти команду','cta.playScrim':'⚔️ Сыграть скрим','cta.createTrn':'🏆 Создать турнир','cta.beta':'Запросить доступ в бету','cta.first16':'The First 16',
   'stat.players':'игроков и команд','stat.scrims':'сыграно скримов','stat.trn':'проведено турниров','stat.prize':'призовых выплачено','partners.label':'Вдохновлено экосистемой:','partners.x1':'Сообщества LATAM','partners.x2':'Независимые организаторы',
-  'home.featTitle':'Всё для соревновательной игры — в одном месте','home.featLead':'Рынок раздроблен: одни сервисы только для турниров, другие — для поиска дуо. COLOSSO объединяет три функции в одной мобильной экосистеме.',
+  'home.featTitle':'Всё для соревновательной игры — в одном месте','home.featLead':'Рынок раздроблен: одни сервисы только для турниров, другие — для поиска дуо. COLOS объединяет три функции в одной мобильной экосистеме.',
   'feat.scrim.t':'Поиск скримов','feat.scrim.p':'Размести скрим или найди соперника в один клик. Фильтры по серверу, региону, рангу и времени. Подтверждение → авто-чат и данные комнаты.','feat.scrim.go':'Открыть поиск →',
   'feat.lfg.t':'Поиск команды (LFG)','feat.lfg.p':'Детальные профили: роль, ранг, статистика и стиль. Фильтр по K/D и win-rate. Репутация борется с токсичностью.','feat.lfg.go':'Найти игроков →',
   'feat.trn.t':'Турниры и сетки','feat.trn.p':'Single/double elimination, round robin, Swiss. Авто-регистрация, комната, пароль сервера и выплаты через кошелёк.','feat.trn.go':'К турнирам →',
@@ -2023,16 +2046,16 @@ const I18N={
 const DYN={
  PT:{'b.play':'Jogar','b.invite':'Convidar','b.chat':'Chat','b.join':'Participar','b.watch':'Assistir','b.rate':'Avaliar','b.rated':'★ Avaliado','lb.head_team':'Time','lb.head_player':'Jogador',
    'sc.sent':'Pedido enviado para','sc.after':'. Chat e dados da sala chegam após confirmação ✓','inv.sent':'Convite para «LOUD Academy» enviado a','chat.open':'Chat aberto com','reg.ok':'Inscrição em','reg.done':'confirmada ✓','watch':'Abrindo transmissão e chave…',
-   'toast.premium':'Premium em breve — entramos na lista de espera ✦','toast.wl':'Vamos agendar uma demo white-label — um gerente fala com você ✉️','toast.yt':'Canal em breve — siga no lançamento 🎬','toast.tw':'Estamos chegando na Twitch ✦','rev.sent':'Avaliação enviada ✓ Trust-score do rival atualizado 🛡️','rev.need':'Dê uma nota com as estrelas ★','vote.thanks':'Valeu! Voto em','vote.counted':'registrado 🗳️','disc':'Conta conectada ✓','space.ok':'Espaço criado ✓ Configure a marca e lance seu primeiro torneio 🏟️','fb.sent':'Obrigado! Feedback enviado ao time COLOSSO 💜','toast.android':'App Android (APK) em desenvolvimento — avisaremos no lançamento 🤖','toast.ios':'App iOS em desenvolvimento — em breve','toast.pwa':'Adicione à tela inicial pelo menu do navegador 📲'},
+   'toast.premium':'Premium em breve — entramos na lista de espera ✦','toast.wl':'Vamos agendar uma demo white-label — um gerente fala com você ✉️','toast.yt':'Canal em breve — siga no lançamento 🎬','toast.tw':'Estamos chegando na Twitch ✦','rev.sent':'Avaliação enviada ✓ Trust-score do rival atualizado 🛡️','rev.need':'Dê uma nota com as estrelas ★','vote.thanks':'Valeu! Voto em','vote.counted':'registrado 🗳️','disc':'Conta conectada ✓','space.ok':'Espaço criado ✓ Configure a marca e lance seu primeiro torneio 🏟️','fb.sent':'Obrigado! Feedback enviado ao time COLOS 💜','toast.android':'App Android (APK) em desenvolvimento — avisaremos no lançamento 🤖','toast.ios':'App iOS em desenvolvimento — em breve','toast.pwa':'Adicione à tela inicial pelo menu do navegador 📲'},
  ES:{'b.play':'Jugar','b.invite':'Invitar','b.chat':'Chat','b.join':'Participar','b.watch':'Ver','b.rate':'Calificar','b.rated':'★ Calificado','lb.head_team':'Equipo','lb.head_player':'Jugador',
    'sc.sent':'Pedido enviado a','sc.after':'. Chat y datos de sala llegan tras la confirmación ✓','inv.sent':'Invitación a «LOUD Academy» enviada a','chat.open':'Chat abierto con','reg.ok':'Inscripción en','reg.done':'confirmada ✓','watch':'Abriendo transmisión y llave…',
-   'toast.premium':'Premium pronto — te anotamos en la lista ✦','toast.wl':'Agendamos una demo white-label — un gerente te contacta ✉️','toast.yt':'Canal pronto — síguenos en el lanzamiento 🎬','toast.tw':'Llegamos pronto a Twitch ✦','rev.sent':'Reseña enviada ✓ Trust-score del rival actualizado 🛡️','rev.need':'Pon una nota con las estrellas ★','vote.thanks':'¡Gracias! Voto por','vote.counted':'registrado 🗳️','disc':'Cuenta conectada ✓','space.ok':'Espacio creado ✓ Configura la marca y lanza tu primer torneo 🏟️','fb.sent':'¡Gracias! Feedback enviado al equipo COLOSSO 💜','toast.android':'App Android (APK) en desarrollo — avisaremos en el lanzamiento 🤖','toast.ios':'App iOS en desarrollo — pronto','toast.pwa':'Añádela a la pantalla de inicio desde el menú del navegador 📲'},
+   'toast.premium':'Premium pronto — te anotamos en la lista ✦','toast.wl':'Agendamos una demo white-label — un gerente te contacta ✉️','toast.yt':'Canal pronto — síguenos en el lanzamiento 🎬','toast.tw':'Llegamos pronto a Twitch ✦','rev.sent':'Reseña enviada ✓ Trust-score del rival actualizado 🛡️','rev.need':'Pon una nota con las estrellas ★','vote.thanks':'¡Gracias! Voto por','vote.counted':'registrado 🗳️','disc':'Cuenta conectada ✓','space.ok':'Espacio creado ✓ Configura la marca y lanza tu primer torneo 🏟️','fb.sent':'¡Gracias! Feedback enviado al equipo COLOS 💜','toast.android':'App Android (APK) en desarrollo — avisaremos en el lanzamiento 🤖','toast.ios':'App iOS en desarrollo — pronto','toast.pwa':'Añádela a la pantalla de inicio desde el menú del navegador 📲'},
  EN:{'b.play':'Play','b.invite':'Invite','b.chat':'Chat','b.join':'Join','b.watch':'Watch','b.rate':'Rate','b.rated':'★ Rated','lb.head_team':'Team','lb.head_player':'Player',
    'sc.sent':'Request sent to','sc.after':'. Chat and room data arrive after confirmation ✓','inv.sent':'Invite to «LOUD Academy» sent to','chat.open':'Chat opened with','reg.ok':'Registration for','reg.done':'confirmed ✓','watch':'Opening stream and bracket…',
-   'toast.premium':'Premium soon — added you to the waitlist ✦','toast.wl':'We will schedule a white-label demo — a manager will reach out ✉️','toast.yt':'Channel soon — follow at launch 🎬','toast.tw':'Coming to Twitch soon ✦','rev.sent':'Review sent ✓ Rival trust-score updated 🛡️','rev.need':'Give a star rating ★','vote.thanks':'Thanks! Vote for','vote.counted':'counted 🗳️','disc':'Account connected ✓','space.ok':'Space created ✓ Set branding and launch your first tournament 🏟️','fb.sent':'Thanks! Feedback sent to the COLOSSO team 💜','toast.android':'Android app (APK) in development — we will notify at launch 🤖','toast.ios':'iOS app in development — coming soon','toast.pwa':'Add to home screen from the browser menu 📲'},
+   'toast.premium':'Premium soon — added you to the waitlist ✦','toast.wl':'We will schedule a white-label demo — a manager will reach out ✉️','toast.yt':'Channel soon — follow at launch 🎬','toast.tw':'Coming to Twitch soon ✦','rev.sent':'Review sent ✓ Rival trust-score updated 🛡️','rev.need':'Give a star rating ★','vote.thanks':'Thanks! Vote for','vote.counted':'counted 🗳️','disc':'Account connected ✓','space.ok':'Space created ✓ Set branding and launch your first tournament 🏟️','fb.sent':'Thanks! Feedback sent to the COLOS team 💜','toast.android':'Android app (APK) in development — we will notify at launch 🤖','toast.ios':'iOS app in development — coming soon','toast.pwa':'Add to home screen from the browser menu 📲'},
  RU:{'b.play':'Играть','b.invite':'Пригласить','b.chat':'Чат','b.join':'Участвовать','b.watch':'Смотреть','b.rate':'Оценить','b.rated':'★ Оценено','lb.head_team':'Команда','lb.head_player':'Игрок',
    'sc.sent':'Запрос отправлен','sc.after':'. Чат и данные комнаты придут после подтверждения ✓','inv.sent':'Приглашение в «LOUD Academy» отправлено','chat.open':'Открыт чат с','reg.ok':'Регистрация на','reg.done':'принята ✓','watch':'Открываем трансляцию и сетку…',
-   'toast.premium':'Premium скоро — записали тебя в лист ожидания ✦','toast.wl':'Запросим демо white-label — менеджер свяжется ✉️','toast.yt':'Канал скоро — подпишись на запуске 🎬','toast.tw':'Скоро в Twitch ✦','rev.sent':'Отзыв отправлен ✓ Trust-score соперника обновлён 🛡️','rev.need':'Поставь оценку звёздами ★','vote.thanks':'Спасибо! Голос за','vote.counted':'учтён 🗳️','disc':'Аккаунт подключён ✓','space.ok':'Пространство создано ✓ Настрой брендинг и запусти первый турнир 🏟️','fb.sent':'Спасибо! Отзыв отправлен команде COLOSSO 💜','toast.android':'Android-приложение (APK) в разработке — сообщим на запуске 🤖','toast.ios':'iOS-приложение в разработке — скоро','toast.pwa':'Добавь на главный экран через меню браузера 📲'}
+   'toast.premium':'Premium скоро — записали тебя в лист ожидания ✦','toast.wl':'Запросим демо white-label — менеджер свяжется ✉️','toast.yt':'Канал скоро — подпишись на запуске 🎬','toast.tw':'Скоро в Twitch ✦','rev.sent':'Отзыв отправлен ✓ Trust-score соперника обновлён 🛡️','rev.need':'Поставь оценку звёздами ★','vote.thanks':'Спасибо! Голос за','vote.counted':'учтён 🗳️','disc':'Аккаунт подключён ✓','space.ok':'Пространство создано ✓ Настрой брендинг и запусти первый турнир 🏟️','fb.sent':'Спасибо! Отзыв отправлен команде COLOS 💜','toast.android':'Android-приложение (APK) в разработке — сообщим на запуске 🤖','toast.ios':'iOS-приложение в разработке — скоро','toast.pwa':'Добавь на главный экран через меню браузера 📲'}
 };
 /* ---- i18n patch: new pages (praccs / players / teams) ---- */
 Object.assign(I18N.ES,{
@@ -2071,9 +2094,9 @@ Object.assign(DYN.ES,{'b.profile':'Perfil','apply.sent':'Postulación enviada a'
 Object.assign(DYN.EN,{'b.profile':'Profile','apply.sent':'Application sent to','b.joined':'Joined','b.invited':'Invited','sc.created':'Pracc created ✓ Now in search','trn.created':'Tournament created ✓','trn.full':'Tournament full','prof.saved':'Profile saved ✓','team.created':'Team created ✓','chal.sent':'Challenge sent to','sc.accepted':'Scrim scheduled with','mine':'Mine'});
 Object.assign(DYN.RU,{'b.profile':'Профиль','apply.sent':'Заявка отправлена','b.joined':'Вы записаны','b.invited':'Приглашён','sc.created':'Пракк создан ✓ Уже в поиске','trn.created':'Турнир создан ✓','trn.full':'Турнир заполнен','prof.saved':'Профиль сохранён ✓','team.created':'Команда создана ✓','chal.sent':'Вызов отправлен','sc.accepted':'Скрим назначен с','mine':'Моё'});
 Object.assign(I18N.ES,{'mm.reset':'Resetear demo','mm.currency':'Moneda','ntf.title':'Notificaciones','ntf.all':'Marcar leídas','qm.title':'Buscando partida…','qm.cancel':'Cancelar','qm.btn':'Partida rápida','nav.dash':'Panel','nav.settings':'Configuración',
-  'auth.h1':'Entra a la arena','auth.p':'Crea tu cuenta en segundos y empieza a jugar scrims, buscar equipo y disputar torneos.','auth.discord':'Continuar con Discord','auth.alt':'¿Sin Discord? ','auth.guest':'Entrar como invitado','auth.terms':'Al continuar aceptas los Términos y la Política de Privacidad.','auth.connecting':'Conectando con Discord…','auth.step':'Paso 1 de 1 · Perfil','auth.welcome':'Crea tu perfil de jugador','auth.photo':'Añadir foto','auth.game':'Juego principal','auth.region':'Región','auth.role':'Rol','auth.start':'Entrar a COLOSSO'}); Object.assign(I18N.EN,{'mm.reset':'Reset demo','mm.currency':'Currency','ntf.title':'Notifications','ntf.all':'Mark read','qm.title':'Finding a match…','qm.cancel':'Cancel','qm.btn':'Quick match','nav.dash':'Dashboard','nav.settings':'Settings',
-  'auth.h1':'Enter the arena','auth.p':'Create your account in seconds and start playing scrims, finding a team and competing in tournaments.','auth.discord':'Continue with Discord','auth.alt':'No Discord? ','auth.guest':'Continue as guest','auth.terms':'By continuing you accept the Terms and Privacy Policy.','auth.connecting':'Connecting to Discord…','auth.step':'Step 1 of 1 · Profile','auth.welcome':'Create your player profile','auth.photo':'Add photo','auth.game':'Main game','auth.region':'Region','auth.role':'Role','auth.start':'Enter COLOSSO'}); Object.assign(I18N.RU,{'mm.reset':'Сбросить демо','mm.currency':'Валюта','ntf.title':'Уведомления','ntf.all':'Прочитать все','qm.title':'Поиск матча…','qm.cancel':'Отмена','qm.btn':'Быстрый матч','nav.dash':'Панель','nav.settings':'Настройки',
-  'auth.h1':'Выйди на арену','auth.p':'Создай аккаунт за секунды и начни играть скримы, искать команду и участвовать в турнирах.','auth.discord':'Продолжить через Discord','auth.alt':'Нет Discord? ','auth.guest':'Войти как гость','auth.terms':'Продолжая, вы принимаете Условия и Политику конфиденциальности.','auth.connecting':'Подключение к Discord…','auth.step':'Шаг 1 из 1 · Профиль','auth.welcome':'Создай профиль игрока','auth.photo':'Добавить фото','auth.game':'Основная игра','auth.region':'Регион','auth.role':'Роль','auth.start':'Войти в COLOSSO'});
+  'auth.h1':'Entra a la arena','auth.p':'Crea tu cuenta en segundos y empieza a jugar scrims, buscar equipo y disputar torneos.','auth.discord':'Continuar con Discord','auth.alt':'¿Sin Discord? ','auth.guest':'Entrar como invitado','auth.terms':'Al continuar aceptas los Términos y la Política de Privacidad.','auth.connecting':'Conectando con Discord…','auth.step':'Paso 1 de 1 · Perfil','auth.welcome':'Crea tu perfil de jugador','auth.photo':'Añadir foto','auth.game':'Juego principal','auth.region':'Región','auth.role':'Rol','auth.start':'Entrar a COLOS'}); Object.assign(I18N.EN,{'mm.reset':'Reset demo','mm.currency':'Currency','ntf.title':'Notifications','ntf.all':'Mark read','qm.title':'Finding a match…','qm.cancel':'Cancel','qm.btn':'Quick match','nav.dash':'Dashboard','nav.settings':'Settings',
+  'auth.h1':'Enter the arena','auth.p':'Create your account in seconds and start playing scrims, finding a team and competing in tournaments.','auth.discord':'Continue with Discord','auth.alt':'No Discord? ','auth.guest':'Continue as guest','auth.terms':'By continuing you accept the Terms and Privacy Policy.','auth.connecting':'Connecting to Discord…','auth.step':'Step 1 of 1 · Profile','auth.welcome':'Create your player profile','auth.photo':'Add photo','auth.game':'Main game','auth.region':'Region','auth.role':'Role','auth.start':'Enter COLOS'}); Object.assign(I18N.RU,{'mm.reset':'Сбросить демо','mm.currency':'Валюта','ntf.title':'Уведомления','ntf.all':'Прочитать все','qm.title':'Поиск матча…','qm.cancel':'Отмена','qm.btn':'Быстрый матч','nav.dash':'Панель','nav.settings':'Настройки',
+  'auth.h1':'Выйди на арену','auth.p':'Создай аккаунт за секунды и начни играть скримы, искать команду и участвовать в турнирах.','auth.discord':'Продолжить через Discord','auth.alt':'Нет Discord? ','auth.guest':'Войти как гость','auth.terms':'Продолжая, вы принимаете Условия и Политику конфиденциальности.','auth.connecting':'Подключение к Discord…','auth.step':'Шаг 1 из 1 · Профиль','auth.welcome':'Создай профиль игрока','auth.photo':'Добавить фото','auth.game':'Основная игра','auth.region':'Регион','auth.role':'Роль','auth.start':'Войти в COLOS'});
 /* page-heading titles without emoji (icons are now SVG) */
 Object.assign(I18N.ES,{'p.scrim.t':'Praccs & Scrims','p.lfg.t':'Jugadores','p.teams.t':'Equipos','p.trn.t':'Torneos','p.rank.t':'Ranking · Glória','p.how.t':'Cómo funciona'});
 Object.assign(I18N.EN,{'p.scrim.t':'Praccs & Scrims','p.lfg.t':'Players','p.teams.t':'Teams','p.trn.t':'Tournaments','p.rank.t':'Ranking · Glória','p.how.t':'How it works'});
@@ -2088,6 +2111,23 @@ Object.assign(DYN.EN,{'val.name':'Enter a name ✍️','val.nick':'Enter your ni
 Object.assign(DYN.RU,{'val.name':'Укажите название ✍️','val.nick':'Укажите ник ✍️'});
 
 let LANG='PT';
+/* ===== feature flags — hide surfaces for the closed beta without deleting code ===== */
+const FLAGS = {
+  wallet:false, premium:false, appDownload:false, organizer:false,
+  tournamentsNav:false, lfgNav:false, multiGameRoadmap:false,
+  chat:true, notifications:true, ranking:true, founderProgram:true,
+  betaApplications:true, openScrimBoard:true, scrimNight:true
+};
+function applyFlags(){
+  const hide=sel=>document.querySelectorAll(sel).forEach(el=>el.style.display='none');
+  if(!FLAGS.wallet)        hide('.nav .wallet, #mmWallet, .mm-wal, .flag-wallet');
+  if(!FLAGS.premium)       hide('.flag-premium');
+  if(!FLAGS.appDownload)   hide('.store');
+  if(!FLAGS.organizer)     hide('.orgNav, [data-go="organizer"], [data-v="organizer"], .flag-organizer');
+  if(!FLAGS.tournamentsNav)hide('.nav .links [data-go="tournaments"], #mmenu [data-v="tournaments"]');
+  if(!FLAGS.lfgNav)        hide('.nav .links [data-go="lfg"], #mmenu [data-v="lfg"]');
+  if(!FLAGS.multiGameRoadmap) hide('.game.dis');
+}
 const baseText=new Map();
 function t(key){ const d=DYN[LANG]||DYN.PT; return d[key]||DYN.PT[key]||key; }
 function applyLang(){
@@ -2330,11 +2370,11 @@ function buildDemoEvents(){
   const thu=nextDow(4,20,0), sat=nextDow(6,18,0), sun=nextDow(0,16,0);
   const iso=d=>new Date(d).toISOString();
   return [
-    { id:'scrim-night-br-001', title:'COLOSSO Scrim Night', type:'scrim_night', game:'Free Fire', region:'Brasil', server:'São Paulo',
+    { id:'scrim-night-br-001', title:'COLOS Scrim Night', type:'scrim_night', game:'Free Fire', region:'Brasil', server:'São Paulo',
       slots:16, registered:12, registrationStart:iso(now-day), checkInStart:iso(thu-30*60000), matchStart:iso(thu), matchEnd:iso(+thu+2*3600000) },
     { id:'tryout-day-001', title:'Tryout Day · LFT', type:'tryout', game:'Mobile Legends', region:'LATAM', server:'São Paulo',
       slots:40, registered:18, registrationStart:iso(now-day), checkInStart:iso(sun-30*60000), matchStart:iso(sun), matchEnd:iso(+sun+2*3600000) },
-    { id:'free-cup-br-001', title:'COLOSSO Free Cup', type:'cup', game:'Free Fire', region:'Brasil', server:'São Paulo',
+    { id:'free-cup-br-001', title:'COLOS Free Cup', type:'cup', game:'Free Fire', region:'Brasil', server:'São Paulo',
       slots:32, registered:7, registrationStart:iso(+now+2*day), checkInStart:iso(sat-45*60000), matchStart:iso(sat), matchEnd:iso(+sat+3*3600000) },
   ];
 }
@@ -2398,42 +2438,111 @@ function renderEventDetail(ev){
   }
   return `<div class="card evcard"><div class="evhead"><h3>${esc(ev.title)}</h3>${evStateBadge(st)}</div>${meta}<div class="evbody">${body}</div><div class="evacts">${acts}</div></div>`;
 }
+function first16Card(){
+  return `<div class="card evcard" style="border-color:rgba(255,90,44,.35);background:linear-gradient(160deg,rgba(255,90,44,.10),var(--panel))">
+    <div class="evhead"><h3>COLOS · THE FIRST 16</h3><span class="evbadge" style="color:#ff8a93;background:rgba(255,100,112,.14);border:1px solid rgba(255,100,112,.32)">SELEÇÃO</span></div>
+    <div class="evmeta">🎮 <b>Free Fire</b> · 📍 Brasil · 🏆 status Founder</div>
+    <p class="evsub">Os 16 primeiros times selecionados entram na arena e recebem o selo <b>Founder</b>. Inscreva seu time agora.</p>
+    <div class="evslots"><div class="evbar"><i style="width:0%"></i></div><span id="first16Count">0/16 times</span></div>
+    <div class="evacts"><button class="btn" onclick="go('beta')">Pedir acesso à beta</button></div>
+  </div>`;
+}
 function renderEvents(){ const el=document.getElementById('eventsList'); if(!el)return;
   const sorted=EVENTS.slice().sort((a,b)=>+new Date(a.matchStart)-+new Date(b.matchStart));
-  el.innerHTML=sorted.map(renderEventDetail).join(''); }
+  el.innerHTML=first16Card()+sorted.map(renderEventDetail).join('');
+  if(HAS_BE() && COLOSSO.betaApplications) COLOSSO.betaApplications.stats().then(s=>{
+    const filled=(s&&s.approved)||0; const c=document.getElementById('first16Count'); if(c)c.textContent=filled+'/16 times';
+    const bar=document.querySelector('#eventsList .evbar i'); if(bar)bar.style.width=Math.min(100,filled/16*100)+'%';
+  }).catch(()=>{});
+}
 function renderScrimsGate(){ const nx=nextScrimNight()||getNextEvent();
   return `<div class="gate-hero"><div class="lk">🔒</div><h3>Scrims fechados</h3>
     <p class="msub" style="max-width:460px;margin:0 auto">Os scrims abrem durante as <b>Scrim Nights</b> agendadas. Inscreva seu time no próximo evento.</p></div>
     ${nx?renderEventDetail(nx):'<div class="empty">Nenhum evento agendado ainda.</div>'}
     <div style="text-align:center;margin-top:12px"><button class="btn ghost" onclick="go('events')">Ver todos os eventos</button></div>`; }
 
-/* ===================== SCRIMS (open only during a live Scrim Night) ===================== */
+/* ===================== ALWAYS-ON SCRIM BOARD + featured Scrim Night ===================== */
+let scrimPosts = [
+  { id:'demo1', teams:{name:'LOUD Academy',glr:1820,founder:true}, rank_band:'Mítico', format:'Squad (4)', server_region:'BR · São Paulo', note:'Sem atraso', slot:'["'+new Date(Date.now()+3*3600000).toISOString()+'","'+new Date(Date.now()+5*3600000).toISOString()+'")' },
+  { id:'demo2', teams:{name:'Fluxo',glr:1690,founder:false}, rank_band:'Lenda', format:'Squad (4)', server_region:'BR · São Paulo', note:'Treino sério', slot:'["'+new Date(Date.now()+26*3600000).toISOString()+'","'+new Date(Date.now()+28*3600000).toISOString()+'")' },
+];
+function parseRange(s){ if(!s)return{}; const m=String(s).match(/[\[(]\s*"?([^",]+?)"?\s*,\s*"?([^")]+?)"?\s*[\])]/);
+  if(!m)return{}; const a=new Date(m[1]),b=new Date(m[2]); return {start:isNaN(a)?null:a, end:isNaN(b)?null:b}; }
+function getMyTeamId(){ if(myTeamId)return myTeamId; const t=teams.find(x=>x.mine&&x._id); if(t)return t._id; const o=teams.find(x=>x.mine); return o?(o._id||'local'):null; }
+function renderScrimPostCard(p){
+  const tm=p.teams||{}; const name=tm.name||p.team_name||'Time'; const pr=parseRange(p.slot);
+  const dn=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb']; const hm=d=>String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  const when=pr.start?(dn[pr.start.getDay()]+' '+hm(pr.start)+(pr.end?'–'+hm(pr.end):'')):'A combinar';
+  return `<div class="scrim">
+    <div class="teamtag"><div class="crest" style="background:${crestColor(name)}">${initials(name)}</div>
+      <div><div class="tn">${esc(name)} ${tm.founder?'<span class="lft-badge">🏆 Founder</span>':''}</div><div class="tr">GLR ${tm.glr||1500}${p.note?' · '+esc(p.note):''}</div></div></div>
+    <span class="rankpill ${rankClass(p.rank_band||'Diamante')}">${esc(p.rank_band||'—')}</span>
+    <span class="chip">🎮 <b>${esc(p.format||'Squad')}</b></span>
+    <span class="chip">🌐 <b>${esc(p.server_region||'BR')}</b></span>
+    <span class="chip">🕑 <b>${when}</b></span>
+    <div style="display:flex;gap:6px;justify-content:flex-end"><button class="btn sm" onclick="challengeScrimPost('${esc(p.id)}')">${({PT:'Desafiar',ES:'Desafiar',EN:'Challenge',RU:'Вызвать'}[LANG])}</button></div>
+  </div>`;
+}
 function renderScrims(){
   const acts=document.getElementById('scrimActions'), filt=document.getElementById('scrimFilters'), el=document.getElementById('scrimList');
   if(!el)return;
-  if(!liveScrimNight()){            // gated: no live Scrim Night → locked state + next event
-    if(acts)acts.style.display='none'; if(filt)filt.style.display='none';
-    el.innerHTML=renderScrimsGate(); return;
+  if(acts)acts.style.display=''; if(filt)filt.style.display='';     // always-on board
+  let html='';
+  const sn=nextScrimNight(), st=sn?getEventState(sn):null;          // featured Scrim Night strip
+  if(sn && (st==='registration_open'||st==='checkin_open'||st==='live')){
+    html+=`<div class="card" style="border-color:rgba(255,90,44,.35);background:linear-gradient(160deg,rgba(255,90,44,.10),var(--panel));margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">🏆 <b>${esc(sn.title)}</b> · <span style="color:var(--muted)">${st==='live'?'AO VIVO agora':'inscrições abertas'}</span></div>
+      <button class="btn sm" onclick="go('events')">Ir para a Arena</button></div>`;
   }
-  if(acts)acts.style.display=''; if(filt)filt.style.display='';   // live → match rooms (real scrims)
-  const r=val('fRank'),fm=val('fFmt'),rg=val('fReg'),tm=val('fTime');
-  const rows=scrims.map((s,idx)=>({s,idx})).filter(({s})=>(!r||s.rank.includes(r))&&(!fm||s.fmt===fm)&&(!rg||s.reg===rg)&&(!tm||s.time===tm));
-  if(!rows.length){el.innerHTML=emptyState('⚔️',tx('noScrimT'),tx('noScrimD'),tx('noScrimB'),"openModal('scrim')");return;}
-  el.innerHTML=rows.map(({s,idx})=>`
-    <div class="scrim">
-      <div class="teamtag">
-        <div class="crest" style="background:${crestColor(s.team)}">${initials(s.team)}</div>
-        <div><div class="tn">${esc(s.team)} ${s.mine?'<span class="lft-badge">'+t('mine')+'</span>':''}</div><div class="tr">⭐ ${s.rep} · ${esc(s.note)}</div></div>
-      </div>
-      <span class="rankpill ${rankClass(s.rank)}">${s.rank}</span>
-      <span class="chip">🎮 <b>${s.fmt}</b></span>
-      <span class="chip">🌐 <b>${s.reg}</b></span>
-      <span class="chip">🕑 <b>${s.time}</b></span>
-      <div style="display:flex;gap:6px;justify-content:flex-end">
-        <button class="btn ghost sm" title="${t('b.chat')}" onclick="openChatWith(scrims[${idx}].team)"><svg class="ico" style="width:15px;height:15px"><use href="#i-chat"/></svg></button>
-        <button class="btn sm" onclick="acceptScrim(${idx})">${t('b.play')}</button>
-      </div>
-    </div>`).join('');
+  const fm=val('fFmt'),rg=val('fReg');
+  const rows=(scrimPosts||[]).filter(p=>(!fm||p.format===fm)&&(!rg||p.server_region===rg));
+  if(!rows.length){ html+=`<div class="empty" style="padding:36px 20px">⚔️<div style="margin:10px 0 4px;font-weight:800;color:var(--txt)">Nenhum scrim aberto agora</div><div>Publique um horário e receba desafios de outros times.</div><div style="margin-top:14px"><button class="btn" onclick="openScrimPost()">Publicar scrim</button></div></div>`; el.innerHTML=html; return; }
+  html+=rows.map(renderScrimPostCard).join('');
+  el.innerHTML=html;
+}
+async function refreshScrimPosts(){
+  if(HAS_BE() && COLOSSO.scrims && COLOSSO.scrims.listPosts){
+    try{ const posts=await COLOSSO.scrims.listPosts({}); scrimPosts=posts||[]; }catch(e){ console.warn('listPosts', e.message); }
+  }
+  try{ if(document.getElementById('scrims').classList.contains('on')) renderScrims(); }catch(e){}
+}
+function openScrimPost(){
+  if(!requireAuth())return;
+  const teamId=getMyTeamId();
+  if(!teamId){ toast('Crie ou entre em um time primeiro.'); go('teams'); openModal('team'); return; }
+  rememberFocus(); const box=document.getElementById('modalBox'); box.classList.remove('wide');
+  const def=new Date(Date.now()+3600000); const pad=n=>String(n).padStart(2,'0');
+  const dtl=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes());
+  box.innerHTML=`<button class="x" onclick="closeModal()" aria-label="close">×</button>
+    <h3>Publicar scrim</h3><p class="msub">Publique um horário — outros times mandam desafio.</p>
+    <div class="two"><div class="frow"><label>Rank</label><select id="sp_rank"><option>Mítico</option><option>Lenda</option><option>Mestre</option><option>Diamante</option></select></div>
+      <div class="frow"><label>Formato</label><select id="sp_fmt"><option>Squad (4)</option><option>Trio (3)</option><option>5v5</option></select></div></div>
+    <div class="two"><div class="frow"><label>Início</label><input id="sp_start" type="datetime-local" value="${dtl(def)}"></div>
+      <div class="frow"><label>Fim</label><input id="sp_end" type="datetime-local" value="${dtl(new Date(def.getTime()+7200000))}"></div></div>
+    <div class="frow"><label>Servidor</label><select id="sp_srv"><option>BR · São Paulo</option><option>AR · Buenos Aires</option><option>MX</option><option>CL</option></select></div>
+    <div class="frow"><label>Observação</label><input id="sp_note" type="text" placeholder="Ex: sem atraso, resultado no app"></div>
+    <div class="foot"><button class="btn ghost" onclick="closeModal()">Cancelar</button><button class="btn" onclick="createScrimPost()">Publicar</button></div>`;
+  document.getElementById('modalBg').classList.add('on'); focusFirst(box);
+}
+function createScrimPost(){
+  const teamId=getMyTeamId(); if(!teamId)return;
+  const s=document.getElementById('sp_start').value, e=document.getElementById('sp_end').value;
+  if(!s||!e){ toast('Defina início e fim.'); return; }
+  const payload={ team_id:teamId, rank_band:val('sp_rank'), format:val('sp_fmt'), server_region:val('sp_srv'), slot_start:s, slot_end:e, note:val('sp_note') };
+  track('scrim_created');
+  const done=()=>{ closeModal(); toast('Scrim publicado ⚔️'); renderScrims(); };
+  if(HAS_BE() && COLOSSO.scrims.createPost){ COLOSSO.scrims.createPost(payload).then(p=>{ scrimPosts.unshift(p); done(); })
+    .catch(err=>{ console.warn('post', err.message); toast(/overlap|exclusion/i.test(err.message||'')?'Você já tem um scrim nesse horário.':'Erro ao publicar.'); }); }
+  else { scrimPosts.unshift({ id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())), teams:{name:profile.team,glr:profile.glr,founder:false}, rank_band:payload.rank_band, format:payload.format, server_region:payload.server_region, note:payload.note, slot:'["'+new Date(s).toISOString()+'","'+new Date(e).toISOString()+'")' }); done(); }
+}
+function challengeScrimPost(id){
+  if(!requireAuth())return;
+  const teamId=getMyTeamId();
+  if(!teamId){ toast('Crie ou entre em um time primeiro.'); go('teams'); return; }
+  track('scrim_challenged');
+  if(HAS_BE() && COLOSSO.scrims.challenge){ COLOSSO.scrims.challenge(id,{challenger_team_id:teamId,message:'Bora nesse horário.'})
+    .then(()=>toast('Desafio enviado ⚔️')).catch(err=>{ console.warn('challenge', err.message); toast('Não foi possível desafiar.'); }); }
+  else toast('Desafio enviado (demo) ⚔️');
 }
 function renderLFG(){
   const role=val('lRole'),rank=val('lRank'),reg=val('lReg'),sort=val('lSort'),lft=val('lLft');
@@ -2521,6 +2630,7 @@ function renderTeams(){
       <div class="tbanner2" style="background:${tm.c}">
         <div class="crest" style="background:${crestColor(tm.name)}">${initials(tm.name)}</div>
         <div><div class="tn2">${esc(tm.name)}</div><div style="font-size:11.5px;color:rgba(255,255,255,.7)">${tm.reg} · ${esc(tm.game)}</div></div>
+        ${tm.founder?`<span class="vbadge" style="position:absolute;top:12px;left:12px;background:rgba(255,176,32,.16);color:#ffce6e;border-color:rgba(255,176,32,.4)">🏆 Founder</span>`:''}
         ${tm.rec?`<span class="rec-badge" style="position:absolute;top:12px;right:12px">${recLbl}</span>`:''}
       </div>
       <div class="body2">
@@ -2850,7 +2960,7 @@ function requireAuth(){ if(loggedIn) return true; showGate('authLogin'); return 
 function updateAuthUI(){ const guest=!loggedIn, L=LANG;
   // hide all account-only chrome so a guest never looks logged in
   const tog=(sel,hide)=>{ const e=document.querySelector(sel); if(e) e.style.display = hide?'none':''; };
-  tog('.nav .wallet', guest);
+  tog('.nav .wallet', guest || !FLAGS.wallet);
   tog('.nav .notif-wrap', guest);
   tog('.nav .right > button.navchat', guest);
   tog('.nav .links button[data-go="profile"]', guest);     // "Perfil" is a personal page
@@ -2916,6 +3026,7 @@ function loginComplete(isNew){
   document.querySelectorAll('.gamehub .game').forEach(g=>g.classList.toggle('on', g.dataset.game===dg));
   renderProfile(); renderAll(); go('dashboard');
   if(HAS_BE()){ publicLoaded=false; loadPublicData(); loadUserData(); }
+  if(pendingInvite) redeemInvite();
   toast(isNew? ({PT:'Conta criada! Bem-vindo 🎉',ES:'¡Cuenta creada! Bienvenido 🎉',EN:'Account created! Welcome 🎉',RU:'Аккаунт создан! Добро пожаловать 🎉'}[LANG])
               : ({PT:'Bem-vindo de volta 👋',ES:'Bienvenido de vuelta 👋',EN:'Welcome back 👋',RU:'С возвращением 👋'}[LANG]));
 }
@@ -2937,7 +3048,7 @@ function beTimeLabel(at){ if(!at) return ({PT:'Agora',ES:'Ahora',EN:'Now',RU:'С
 function bePrize(r){ const sym={BRL:'R$',USD:'$',ARS:'$',MXN:'$',CLP:'$',COP:'$'}[r.currency]||''; return r.prize? (sym+' '+r.prize) : ({PT:'A definir',ES:'A definir',EN:'TBD',RU:'Уточняется'}[LANG]); }
 function beScrimToUI(r){ return {team:(r.teams&&r.teams.name)||(r.profiles&&r.profiles.nick)||profile.team, rank:r.rank, fmt:r.format, reg:r.server, time:beTimeLabel(r.scheduled_at), rep:4.8, note:r.note||'', mine:(r.creator_id===BE_UID), _id:r.id}; }
 function beTeamToUI(r){ const ros=(r.team_members&&r.team_members.length)?r.team_members.map(m=>[m.profile_id,'']):[[r.owner_id,'IGL']];
-  return {name:r.name, reg:r.region, game:GAME_UI[r.game]||'Free Fire', rank:r.rank, elo:r.glr, w:r.wins, l:r.losses, rec:r.recruiting, roles:r.open_roles||[], lang:r.lang||'PT', lang2:r.lang2||'', c:'linear-gradient(135deg,#ff5a2c,#ff2d9b)', roster:ros, results:[], trophies:[], mine:(r.owner_id===BE_UID), _id:r.id}; }
+  return {name:r.name, reg:r.region, game:GAME_UI[r.game]||'Free Fire', rank:r.rank, elo:r.glr, w:r.wins, l:r.losses, rec:r.recruiting, roles:r.open_roles||[], lang:r.lang||'PT', lang2:r.lang2||'', founder:!!r.founder, c:'linear-gradient(135deg,#ff5a2c,#ff2d9b)', roster:ros, results:[], trophies:[], mine:(r.owner_id===BE_UID), _id:r.id}; }
 function beTrnToUI(r){ const colors=['#ff5a2c','#3da5ff','#9a6bff','#27d07a']; const cnt=(r.tournament_registrations&&r.tournament_registrations.length)||0;
   return {name:r.name, fmt:r.format, prize:bePrize(r), teams:cnt+'/'+r.slots, status:(r.status==='live'?'live':r.status==='finished'?'done':'reg'),
     whenPT:'Inscrição aberta',whenES:'Inscripción abierta',whenEN:'Registration open',whenRU:'Регистрация открыта', c:colors[Math.floor(Math.random()*4)], mine:(r.organizer_id===BE_UID), _id:r.id,
@@ -2982,6 +3093,7 @@ async function loadPublicData(){
     lbTeams.sort((a,b)=>b.elo-a.elo); lbPlayers.sort((a,b)=>b.elo-a.elo);
     try{renderAll();}catch(e){}
     subscribeScrimsFeed();   // live updates: new open scrims appear without reload
+    refreshScrimPosts();     // load the always-on scrim board
   }catch(e){ console.warn('loadPublicData', e.message); }
 }
 // USER data — only after login: own scheduled scrims into "my scrims", real
@@ -3021,7 +3133,7 @@ async function refreshScrims(){
 function subscribeScrimsFeed(){
   if(!HAS_BE()||_scrimFeedSub)return; _scrimFeedSub=true;
   try{ COLOSSO.sb.channel('scrims-feed')
-    .on('postgres_changes',{event:'*',schema:'public',table:'scrims'},()=>{ clearTimeout(_scrimRefreshT); _scrimRefreshT=setTimeout(refreshScrims,400); })
+    .on('postgres_changes',{event:'*',schema:'public',table:'scrim_posts'},()=>{ clearTimeout(_scrimRefreshT); _scrimRefreshT=setTimeout(refreshScrimPosts,400); })
     .subscribe();
   }catch(e){ console.warn('scrims feed', e.message); }
 }
@@ -3045,6 +3157,24 @@ setInterval(()=>{
   if(flipped){ try{ if(document.getElementById('events')?.classList.contains('on')) renderEvents();
     if(document.getElementById('scrims')?.classList.contains('on')) renderScrims(); }catch(e){} }
 }, 1000);
+/* ----- lightweight analytics stub (localStorage now, server later) ----- */
+function track(event_name, metadata={}){
+  try{ const ev={ id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())), event_name, metadata, t:new Date().toISOString() };
+    const l=LS.get('events')||[]; l.push(ev); if(l.length>500) l.shift(); LS.set('events',l);
+    // server analytics sink (PostHog / events table) plugs in here later
+  }catch(e){}
+}
+/* ----- closed-beta application ----- */
+function submitBetaApplication(){
+  const p={ nick:val('ba_nick').trim(), is_captain:val('ba_captain')==='yes', team_name:val('ba_team').trim(),
+    game:val('ba_game'), contact:val('ba_contact').trim(), reason:val('ba_reason').trim(), region:'BR' };
+  if(!p.nick || !p.contact){ toast(({PT:'Preencha nick e contato.',RU:'Заполните ник и контакт.'}[LANG])||'Preencha nick e contato.'); return; }
+  track('beta_apply_submitted',{captain:p.is_captain,game:p.game});
+  const done=()=>{ toast(({PT:'Inscrição enviada! Se for selecionado, você recebe o convite. ✓',RU:'Заявка отправлена ✓'}[LANG])||'Inscrição enviada ✓');
+    ['ba_nick','ba_team','ba_contact','ba_reason'].forEach(id=>{const e=document.getElementById(id); if(e)e.value='';}); };
+  if(HAS_BE() && COLOSSO.betaApplications){ COLOSSO.betaApplications.create(p).then(done).catch(e=>{ console.warn('beta', e.message); toast('Erro ao enviar — tente de novo.'); }); }
+  else { const list=LS.get('beta_applications')||[]; list.push({ id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())), ...p, status:'pending', created_at:new Date().toISOString() }); LS.set('beta_applications',list); done(); }
+}
 function cleanAuthUrl(){
   // strip any OAuth tokens/code/error left in the URL so retries start fresh
   const raw = (window.location.hash||'') + (window.location.search||'');
@@ -3259,10 +3389,10 @@ function sendResult(won){
 const LEGAL={
  PT:{title:'Termos e Privacidade', updated:'Atualizado em jun. 2026',
   terms:`<h4>Termos de Uso</h4>
-   <p>COLOSSO é uma plataforma para organizar scrims, times e torneios de esports mobile na América Latina. Ao usar o serviço você concorda com estes termos.</p>
+   <p>COLOS é uma plataforma para organizar scrims, times e torneios de esports mobile na América Latina. Ao usar o serviço você concorda com estes termos.</p>
    <p><b>Elegibilidade.</b> Você deve ter pelo menos 13 anos (ou a idade mínima exigida na sua região). Menores devem ter consentimento dos responsáveis.</p>
    <p><b>Conta.</b> O acesso é feito via Discord. Você é responsável pela atividade na sua conta e por manter um comportamento respeitoso (sem trapaça, assédio, spam ou conteúdo ilegal).</p>
-   <p><b>Conteúdo.</b> Você mantém os direitos do que publica (mensagens, nick, avatar), mas concede ao COLOSSO licença para exibi-lo dentro do serviço.</p>
+   <p><b>Conteúdo.</b> Você mantém os direitos do que publica (mensagens, nick, avatar), mas concede ao COLOS licença para exibi-lo dentro do serviço.</p>
    <p><b>Prêmios e pagamentos.</b> Recursos de buy-in e premiação em dinheiro ainda não estão ativos nesta versão. Quando forem, terão regras específicas.</p>
    <p><b>Sem garantias.</b> O serviço é fornecido "como está", em fase de pré-lançamento, podendo conter erros ou indisponibilidades. Podemos alterar ou encerrar funções a qualquer momento.</p>`,
   privacy:`<h4>Política de Privacidade</h4>
@@ -3273,10 +3403,10 @@ const LEGAL={
    <p><b>Seus direitos.</b> Você pode pedir acesso ou exclusão dos seus dados. Contato: privacidade@colosso.gg</p>`},
  EN:{title:'Terms & Privacy', updated:'Updated Jun 2026',
   terms:`<h4>Terms of Use</h4>
-   <p>COLOSSO is a platform to organize scrims, teams and tournaments for mobile esports in Latin America. By using it you agree to these terms.</p>
+   <p>COLOS is a platform to organize scrims, teams and tournaments for mobile esports in Latin America. By using it you agree to these terms.</p>
    <p><b>Eligibility.</b> You must be at least 13 (or your region's minimum). Minors need guardian consent.</p>
    <p><b>Account.</b> Access is via Discord. You're responsible for your account's activity and for respectful conduct (no cheating, harassment, spam or illegal content).</p>
-   <p><b>Content.</b> You keep the rights to what you post (messages, nick, avatar) and grant COLOSSO a license to display it inside the service.</p>
+   <p><b>Content.</b> You keep the rights to what you post (messages, nick, avatar) and grant COLOS a license to display it inside the service.</p>
    <p><b>Prizes & payments.</b> Buy-in and cash-prize features are not active in this version. When enabled, specific rules will apply.</p>
    <p><b>No warranty.</b> The service is provided "as is" in pre-release and may contain bugs or downtime. Features may change or end at any time.</p>`,
   privacy:`<h4>Privacy Policy</h4>
@@ -3287,10 +3417,10 @@ const LEGAL={
    <p><b>Your rights.</b> You may request access to or deletion of your data. Contact: privacy@colosso.gg</p>`},
  ES:{title:'Términos y Privacidad', updated:'Actualizado jun. 2026',
   terms:`<h4>Términos de Uso</h4>
-   <p>COLOSSO es una plataforma para organizar scrims, equipos y torneos de esports móvil en Latinoamérica. Al usarla aceptas estos términos.</p>
+   <p>COLOS es una plataforma para organizar scrims, equipos y torneos de esports móvil en Latinoamérica. Al usarla aceptas estos términos.</p>
    <p><b>Elegibilidad.</b> Debes tener al menos 13 años (o el mínimo de tu región). Los menores requieren consentimiento de un tutor.</p>
    <p><b>Cuenta.</b> El acceso es vía Discord. Eres responsable de la actividad de tu cuenta y de una conducta respetuosa (sin trampas, acoso, spam ni contenido ilegal).</p>
-   <p><b>Contenido.</b> Conservas los derechos de lo que publicas (mensajes, nick, avatar) y otorgas a COLOSSO licencia para mostrarlo dentro del servicio.</p>
+   <p><b>Contenido.</b> Conservas los derechos de lo que publicas (mensajes, nick, avatar) y otorgas a COLOS licencia para mostrarlo dentro del servicio.</p>
    <p><b>Premios y pagos.</b> Las funciones de buy-in y premios en dinero aún no están activas en esta versión.</p>
    <p><b>Sin garantías.</b> El servicio se ofrece "tal cual", en pre-lanzamiento, y puede tener errores o caídas. Las funciones pueden cambiar o cerrarse.</p>`,
   privacy:`<h4>Política de Privacidad</h4>
@@ -3301,10 +3431,10 @@ const LEGAL={
    <p><b>Tus derechos.</b> Puedes pedir acceso o eliminación de tus datos. Contacto: privacidad@colosso.gg</p>`},
  RU:{title:'Условия и конфиденциальность', updated:'Обновлено: июнь 2026',
   terms:`<h4>Условия использования</h4>
-   <p>COLOSSO — платформа для организации скримов, команд и турниров по мобильному киберспорту в Латинской Америке. Используя сервис, вы принимаете эти условия.</p>
+   <p>COLOS — платформа для организации скримов, команд и турниров по мобильному киберспорту в Латинской Америке. Используя сервис, вы принимаете эти условия.</p>
    <p><b>Возраст.</b> Вам должно быть не менее 13 лет (или минимального возраста в вашем регионе). Несовершеннолетним нужно согласие законного представителя.</p>
    <p><b>Аккаунт.</b> Вход через Discord. Вы отвечаете за активность в аккаунте и уважительное поведение (без читов, травли, спама и незаконного контента).</p>
-   <p><b>Контент.</b> Вы сохраняете права на то, что публикуете (сообщения, ник, аватар), и даёте COLOSSO право показывать это внутри сервиса.</p>
+   <p><b>Контент.</b> Вы сохраняете права на то, что публикуете (сообщения, ник, аватар), и даёте COLOS право показывать это внутри сервиса.</p>
    <p><b>Призы и платежи.</b> Функции buy-in и денежных призов в этой версии ещё не активны.</p>
    <p><b>Без гарантий.</b> Сервис предоставляется «как есть», в стадии пре-релиза, возможны ошибки и перебои. Функции могут меняться или закрываться.</p>`,
   privacy:`<h4>Политика конфиденциальности</h4>
@@ -3412,7 +3542,7 @@ function openModal(type){
       <div class="frow"><label>${ {PT:'Recrutando funções',ES:'Reclutando roles',EN:'Recruiting roles',RU:'Набор ролей'}[L] }</label><input id="t_roles" type="text" placeholder="Sniper, Suporte"></div>
       <div class="foot"><button class="btn ghost" onclick="closeModal()">${cancel}</button><button class="btn" onclick="addTeam()">${create}</button></div>`;
   }else if(type==='connect'){
-    const sub={PT:'Conecte a COLOSSO com seus serviços — login rápido e avisos de scrim.',ES:'Conecta COLOSSO con tus servicios — login rápido y avisos.',EN:'Connect COLOSSO with your services — fast login and scrim alerts.',RU:'Свяжи COLOSSO с сервисами — быстрый вход и уведомления.'}[L];
+    const sub={PT:'Conecte a COLOS com seus serviços — login rápido e avisos de scrim.',ES:'Conecta COLOS con tus servicios — login rápido y avisos.',EN:'Connect COLOS with your services — fast login and scrim alerts.',RU:'Свяжи COLOS с сервисами — быстрый вход и уведомления.'}[L];
     const linked={PT:'✓ Conectado',ES:'✓ Conectado',EN:'✓ Linked',RU:'✓ Связан'}[L];
     const link={PT:'Conectar',ES:'Conectar',EN:'Link',RU:'Связать'}[L];
     const verify={PT:'Verificar',ES:'Verificar',EN:'Verify',RU:'Проверить'}[L];
@@ -3453,7 +3583,7 @@ function openModal(type){
       <button class="mm" style="justify-content:center;color:#ff8a63;font-size:13px;border:1px solid var(--line);border-radius:11px;margin-top:4px" onclick="logout()">⎋ ${ {PT:'Sair da conta',ES:'Cerrar sesión',EN:'Log out',RU:'Выйти из аккаунта'}[L] }</button>
       <div class="foot"><button class="btn ghost" onclick="closeModal()">${cancel}</button><button class="btn" onclick="saveSettings()">${save}</button></div>`;
   }else if(type==='feedback'){
-    html+=`<h3>${TT.feedback[L]}</h3><p class="msub">${ {PT:'Construímos a COLOSSO com a comunidade. O que melhorar?',ES:'Construimos COLOSSO con la comunidad. ¿Qué mejorar?',EN:'We build COLOSSO with the community. What to improve?',RU:'Мы строим COLOSSO с сообществом. Что улучшить?'}[L] }</p>
+    html+=`<h3>${TT.feedback[L]}</h3><p class="msub">${ {PT:'Construímos a COLOS com a comunidade. O que melhorar?',ES:'Construimos COLOS con la comunidad. ¿Qué mejorar?',EN:'We build COLOS with the community. What to improve?',RU:'Мы строим COLOS с сообществом. Что улучшить?'}[L] }</p>
       <div class="frow"><label>${ {PT:'Tipo',ES:'Tipo',EN:'Type',RU:'Тип'}[L] }</label><select><option>${ {PT:'Ideia',ES:'Idea',EN:'Idea',RU:'Идея'}[L] }</option><option>Bug</option><option>${ {PT:'Pedir jogo',ES:'Pedir juego',EN:'Request game',RU:'Запрос игры'}[L] }</option><option>${ {PT:'Parceria',ES:'Alianza',EN:'Partnership',RU:'Сотрудничество'}[L] }</option></select></div>
       <div class="frow"><label>${ {PT:'Mensagem',ES:'Mensaje',EN:'Message',RU:'Сообщение'}[L] }</label><textarea rows="3" placeholder="..."></textarea></div>
       <div class="foot"><button class="btn ghost" onclick="closeModal()">${cancel}</button><button class="btn" onclick="closeModal();toast(t('fb.sent'))">${ {PT:'Enviar',ES:'Enviar',EN:'Send',RU:'Отправить'}[L] }</button></div>`;
@@ -3553,10 +3683,56 @@ function addTeam(){
   const obj={name:nm,reg:v('t_reg'),game:v('t_game'),lang,lang2,rank:profile.rank,elo:1500,w:0,l:0,rec:roles.length>0,roles,
     c:'linear-gradient(135deg,#ff5a2c,#ff2d9b)',roster:[[profile.nick,'IGL']],results:[],trophies:[],mine:true};
   teams.unshift(obj);
-  saveState(); closeModal(); go('teams'); renderTeams(); toast(t('team.created'));
+  saveState(); closeModal(); go('teams'); renderTeams(); track('team_created');
   if(HAS_BE()) COLOSSO.teams.create({ name:nm, game:GAME_DB[v('t_game')]||'free_fire', region:v('t_reg'), rank:profile.rank, open_roles:roles, crest_color:'#ff5a2c', lang, lang2:lang2||null })
-    .then(r=>{ obj._id=r.id; }).catch(e=>console.warn('team BE', e.message));
+    .then(r=>{ obj._id=r.id; myTeamId=r.id; try{LS.set('myTeamId',r.id);}catch(e){} afterTeamCreated(obj); })
+    .catch(e=>{ console.warn('team BE', e.message); afterTeamCreated(obj); });
+  else afterTeamCreated(obj);
 }
+/* ===================== FOUNDER invite / referral loop ===================== */
+let myTeamId = (typeof LS!=='undefined' && LS.get('myTeamId')) || null;
+let pendingInvite = null;
+async function afterTeamCreated(team){
+  let code=null;
+  if(HAS_BE() && team._id && COLOSSO.teams && COLOSSO.teams.createInvite){
+    try{ const inv=await COLOSSO.teams.createInvite(team._id); code=inv&&inv.invite_code; }catch(e){ console.warn('invite', e.message); }
+  }
+  if(!code) code='CLS'+Math.random().toString(36).slice(2,8).toUpperCase();   // demo fallback
+  const url=location.origin+location.pathname+'?invite='+code;
+  showInvitePanel(team, url);
+}
+function showInvitePanel(team, url){
+  rememberFocus();
+  const box=document.getElementById('modalBox'); box.classList.remove('wide');
+  box.innerHTML=`<button class="x" onclick="closeModal()" aria-label="close">×</button>
+    <h3>Seu time está quase pronto 🔥</h3>
+    <p class="msub">Convide sua line-up para liberar o selo <b>Founder</b> e a página do time.</p>
+    <div style="margin:16px 0"><label style="font-size:12px;font-weight:700;color:var(--muted)">Link de convite</label>
+      <input id="inviteLink" readonly style="width:100%;margin-top:6px" value="${esc(url)}"></div>
+    <div class="foot">
+      <button class="btn" onclick="copyInvite()">📋 Copiar link</button>
+      <button class="btn ghost" onclick="shareInvite('wa')">WhatsApp</button>
+      <button class="btn ghost" onclick="shareInvite('dc')">Discord</button>
+    </div>
+    <p style="color:var(--dim);font-size:12px;margin-top:12px;text-align:center">Quando 3 jogadores entrarem, seu time desbloqueia o selo Founder 🏆</p>`;
+  document.getElementById('modalBg').classList.add('on'); focusFirst(box);
+}
+function copyInvite(){ const i=document.getElementById('inviteLink'); if(!i)return; i.select();
+  try{ navigator.clipboard.writeText(i.value); }catch(e){ try{document.execCommand('copy');}catch(_){} }
+  toast('Link copiado! Traz sua line-up 🤝'); track('invite_copied'); }
+function shareInvite(ch){ const el=document.getElementById('inviteLink'); if(!el)return; const url=el.value;
+  if(ch==='wa'){ window.open('https://wa.me/?text='+encodeURIComponent('Entra no meu time na COLOS: '+url),'_blank'); track('whatsapp_clicked'); }
+  else { try{ navigator.clipboard.writeText(url); }catch(e){} toast('Link copiado — cola no seu Discord 📋'); track('discord_clicked'); } }
+function getInviteCode(){ try{ return new URLSearchParams(location.search).get('invite'); }catch(e){ return null; } }
+function handleInviteOnLoad(){ const c=getInviteCode(); if(!c)return; pendingInvite=c;
+  toast('Convite detectado 🎟️ Entre para participar do time.');
+  if(loggedIn) redeemInvite(); else showGate('authLogin'); }
+async function redeemInvite(){ if(!pendingInvite)return; const code=pendingInvite; pendingInvite=null;
+  try{ history.replaceState(null,'',location.origin+location.pathname); }catch(e){}
+  if(HAS_BE() && COLOSSO.teams && COLOSSO.teams.joinByInvite){
+    try{ const r=await COLOSSO.teams.joinByInvite(code); toast('Você entrou no time '+((r&&r.name)?'«'+r.name+'» ':'')+'✓'); track('invite_redeemed'); go('teams'); }
+    catch(e){ console.warn('join invite', e.message); toast('Convite inválido ou expirado.'); }
+  } else { toast('Convite registrado (demo).'); } }
 function applyTeam(ref){
   if(!requireAuth())return;
   const tm=(typeof ref==='number')?teams[ref]:teams.find(x=>x.name===ref); if(!tm)return;
@@ -3789,7 +3965,7 @@ function notifText(n){const L=LANG;switch(n.type){
   case 'joined':return ({PT:`Inscrito em ${n.name}`,ES:`Inscrito en ${n.name}`,EN:`Joined ${n.name}`,RU:`Записан: ${n.name}`})[L];
   case 'application':return ({PT:`${n.team} respondeu sua candidatura`,ES:`${n.team} respondió tu postulación`,EN:`${n.team} replied to your application`,RU:`${n.team} ответила на заявку`})[L];
   case 'app_sent':return ({PT:`Candidatura enviada a ${n.team}`,ES:`Postulación enviada a ${n.team}`,EN:`Application sent to ${n.team}`,RU:`Заявка отправлена: ${n.team}`})[L];
-  default:return ({PT:'Bem-vindo à COLOSSO! Complete seu perfil.',ES:'¡Bienvenido a COLOSSO! Completa tu perfil.',EN:'Welcome to COLOSSO! Complete your profile.',RU:'Добро пожаловать в COLOSSO! Заполните профиль.'})[L];}}
+  default:return ({PT:'Bem-vindo à COLOS! Complete seu perfil.',ES:'¡Bienvenido a COLOS! Completa tu perfil.',EN:'Welcome to COLOS! Complete your profile.',RU:'Добро пожаловать в COLOS! Заполните профиль.'})[L];}}
 function notifGo(n){ if(n.type==='match')go('scrims'); else if(n.type==='invite'||n.type==='invite_sent')go('lfg');
   else if(n.type==='tournament'||n.type==='joined')go('tournaments'); else if(n.type==='application'||n.type==='app_sent')go('teams'); else go('profile'); }
 function unreadNotif(){return notifs.filter(n=>!n.read).length;}
@@ -3809,7 +3985,11 @@ function pushNotif(o){ o.read=false; o.t=({PT:'agora',ES:'ahora',EN:'now',RU:'с
 /* ================= LANGUAGE / CURRENCY ================= */
 function toggleLang(e){ e.stopPropagation(); const open=document.getElementById('langMenu').classList.toggle('on'); if(e.currentTarget)e.currentTarget.setAttribute('aria-expanded',open); }
 function markCurrent(menuId,attr,val){ document.querySelectorAll('#'+menuId+' button').forEach(b=>b.setAttribute('aria-current', b.dataset[attr]===val?'true':'false')); }
-function setLang(code){ LANG=code; document.getElementById('langCur').textContent=code; document.getElementById('langMenu').classList.remove('on'); markCurrent('langMenu','l',code); LS.set('lang',code); applyLang(); renderAll(); renderProfile(); }
+const LANG_ON=['PT','RU'];   // launch: PT public + RU for dev (removed at launch). ES/EN = soon
+function langSoon(){ document.getElementById('langMenu').classList.remove('on');
+  toast(({PT:'Espanhol e Inglês chegam em breve 🌐',RU:'Испанский и английский — скоро 🌐'}[LANG])||'Em breve 🌐'); }
+function setLang(code){ if(!LANG_ON.includes(code)){ langSoon(); return; }
+  LANG=code; document.getElementById('langCur').textContent=code; document.getElementById('langMenu').classList.remove('on'); markCurrent('langMenu','l',code); LS.set('lang',code); applyLang(); renderAll(); renderProfile(); }
 let CURR={sym:'R$',code:'BRL',rate:1};
 const RATES={BRL:1,MXN:3.4,ARS:175,CLP:165};
 function applyCurrency(){
@@ -3926,7 +4106,7 @@ function enhanceUI(){ try{buildTicker();}catch(e){} try{animateCounters();}catch
   players=A('players',players); myScrims=A('myScrims',myScrims); soonGames=A('soonGames',soonGames);
   history=A('history',history); chats=A('chats',chats); notifs=A('notifs',notifs); spaces=A('spaces',spaces);
   const pf=LS.get('profile'); if(pf&&typeof pf==='object') profile=Object.assign(profile,pf);
-  const sl=LS.get('lang'); if(['PT','ES','EN','RU'].indexOf(sl)>=0) LANG=sl;
+  const sl=LS.get('lang'); if(['PT','RU'].indexOf(sl)>=0) LANG=sl;   // ES/EN soon → fall back to PT
   const sc=LS.get('cur'); if(sc&&sc.code&&RATES[sc.code]) CURR=sc;
 })();
 // reflect restored language & currency in the UI
@@ -3938,6 +4118,8 @@ applyLang();
 renderAll();
 renderProfile();
 enhanceUI();
+applyFlags();
+handleInviteOnLoad();
 /* auth gate */
 const _beConfigured = window.COLOSSO_ENV && (window.COLOSSO_ENV.SUPABASE_ANON_KEY||'').indexOf('PASTE')===-1;
 if(_beConfigured){
